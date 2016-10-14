@@ -1,5 +1,5 @@
 export class StoryController {
-  constructor($scope, $routeParams, $location, UserFactory) {
+  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory) {
     'ngInject';
 
     $scope.storyId = $routeParams.storyId;
@@ -13,25 +13,40 @@ export class StoryController {
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
           // $scope.storyData = {}
-          var data = {
-            type: 'simple',
-            questions: [
-              {
-                text: 'Youpi tralala',
-                characters: [
-                  {
-                    name: 'Nobody'
-                  }
-                ],
-                answers: [
-                  {text: 'Oh oui alors', id:0},
-                  {text: 'Oh non alors', id:1}
-                ]
-              }
-            ]
-          };
-          $scope.storyData = data;
-          console.log('$scope.storyData', $scope.storyData);
+          // var data = {
+          //   type: 'simple',
+          //   questions: [
+          //     {
+          //       text: 'Youpi tralala',
+          //       characters: [
+          //         {
+          //           name: 'Nobody'
+          //         }
+          //       ],
+          //       answers: [
+          //         {text: 'Oh oui alors', id:0},
+          //         {text: 'Oh non alors', id:1}
+          //       ]
+          //     },
+          //     {
+          //       text: 'never gonna give you up',
+          //       characters: [
+          //         {
+          //           name: 'Nobody'
+          //         }
+          //       ],
+          //       answers: [
+          //         {text: 'oh sh-', id:0},
+          //         {text: 'Fly, you fools', id:1}
+          //       ]
+          //     }
+          //   ]
+          // };
+          StoriesFactory.getStory($scope.storyId).$loaded(function(data){
+            console.log('data', data);
+            $scope.storyData = data;
+          });
+          // console.log('$scope.storyData', $scope.storyData);
         });
 
       }

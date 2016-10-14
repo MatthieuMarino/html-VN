@@ -12,6 +12,7 @@ import { CharacterDirective } from './components/character/characterDirective';
 import { InterfaceDirective } from './components/interface/interfaceDirective';
 import { StoryController } from './story/storyController';
 import { ResultController } from './result/result.controller';
+import { StoriesFactory } from './components/stories/storiesFactory';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase'])
   .constant('Firebase',firebase)
@@ -19,6 +20,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .config(routerConfig)
   .provider('AuthService', AuthServiceProvider)
   .service('UserFactory', UserFactory)
+  .service('StoriesFactory', StoriesFactory)
   .controller('MainController', MainController)
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)
