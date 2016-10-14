@@ -1,0 +1,12 @@
+div(ng-if='storyData')
+  div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
+    div.row
+      div.small-12.column.text-right
+        div.button.alert menu
+      //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
+  div
+    interface(data='storyData.questions[index]', action='chooseAnswer')
+  //div story {{story.questions[index]}}
+  //background
+
+

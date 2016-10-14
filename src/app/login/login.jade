@@ -1,0 +1,14 @@
+div.alert.callout(ng-if="error")
+  div.loginError
+    i.fa.fa-exclamation-triangle.fa-lg(aria-hidden="true")
+    span {{error}}
+div.row.align-center.topLogin
+  div.small-12.column.text-center
+    h1.titreLogin Bienvenue sur "Nom a déterminer"
+  div.small-4.column.align-center
+    form(name="loginForm", ng-submit="connectViaMail(login, password)")
+      input(type="text", placeholder="login", ng-model="login", name="login", required)
+      input(type="password", placeholder="password", ng-model="password", name="password", required)
+      button(type="submit").button.hollow Valider
+    p
+      a(ng-href='#/signup') Créer un compte

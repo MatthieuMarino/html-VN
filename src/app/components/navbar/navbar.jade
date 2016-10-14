@@ -1,0 +1,8 @@
+div.small-12.column.text-right
+  span
+    span {{user.firstName}} {{user.lastName}}
+    div(ng-if='user.profilePic')
+      img(ng-src='{{user.profilePic}}')
+  span
+    button(ng-click='logOut()').small.button.alert.btn
+      i.fa.fa-sign-out.fa-2
