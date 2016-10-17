@@ -82,7 +82,20 @@ export class UserFactory {
     this.userRef.child(uid+'/walkthroughs/'+storyID+'/'+index).set(answer);
   }
 
-
+  isAdmin(uid){
+    var defer = this.$q.defer();
+    this.Firebase.database().ref('admins').child(uid).once('value',function(data){
+      if(data.val()){
+        defer.resolve(true);
+      }else{
+        defer.reject('not admin');
+      }
+    }).catch(function(err){
+      console.log('err', err);
+      defer.reject(err);
+    });
+    return defer.promise;
+  }
 
 
 }

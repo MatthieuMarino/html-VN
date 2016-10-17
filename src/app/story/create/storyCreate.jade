@@ -1,0 +1,24 @@
+h2 Créer une novuelle histoire
+
+h4 Titre
+input(ng-model='newStory.title')
+
+h4 Description
+input(ng-model='newStory.description')
+
+h4 Questions
+div(ng-repeat='question in newStory.questions').small-offset-1
+  div Texte :
+    input(ng-model='question.text')
+  div(ng-repeat='answer in question.answers').small-offset-1
+    input(ng-model='answer.id', placeholder='Identifiant')
+    input(ng-model='answer.text', placeholder='Text')
+  button(ng-click='addAnswer(question)').button.success.small-offset-1
+    i.fa.fa-plus
+    span Ajouter une réponse
+
+button(ng-click='addQuestion()').button.success
+  i.fa.fa-plus
+  span Ajouter une question
+
+button(ng-click='saveStory(newStory)').button Créer l'histoire
