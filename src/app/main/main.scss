@@ -1,7 +1,35 @@
 .main {
   height: 100vh;
-  padding: 50px 0;
+  background-color: #d1605a;
+  position: relative;
   .welcome {
-    height: 90vh;
+    padding: 120px 0;
+    position: relative;
+
+    .logo {
+      height: 200px;
+      img {
+        //position: absolute;
+        //top: 55px;
+        //left: 390px;
+      }
+    }
+
+    a {
+      color: white;
+      text-align: center;
+      .btn {
+        margin: 30px auto;
+        text-align: center;
+        background-color: #b3b3b3;
+        border: 6px solid white;
+        border-radius: 20px;
+        font-size: 2.9rem;
+        font-family: Nevo;
+        font-weight: bold;
+        text-transform: uppercase;
+        width: 210px;
+      }
+    }
   }
 }

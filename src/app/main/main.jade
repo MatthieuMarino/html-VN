@@ -1,9 +1,19 @@
 section.main
-  div.small-12.column
-    navbar
-  div.row.align-middle.align-center.welcome
+  //div.small-12.column
+  //  navbar
+  div.row.align-center.welcome.border
     div.small-12.column.text-center
-      h2 Bienvenue dans "Nom à déterminer"
-      a(ng-href='#/stories').button.success Commencer
-      a(ng-if='unlock',ng-href='#/create/').button.secondary Créer une histoire
+      div.row.logo.border
+        div.small-12.column
+          img(src='./assets/images/logoGarage56.svg', width=250)
+      img(src='./assets/images/dev-survival.svg', width=830)
+      div.column.cont-btn
+        a(ng-href='#/stories')
+          div.btn JOUER
+
+    //div.small-12.column.text-center
+    //  div.row.align-center
+    //    a(ng-href='#/stories')
+
+    //a(ng-if='unlock',ng-href='#/create/').button.secondary Créer une histoire
 

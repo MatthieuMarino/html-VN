@@ -1,0 +1,74 @@
+/* Nevo */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo.woff')
+    format('woff');
+}
+
+/* Nevo Thin */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Thin.woff')
+    format('woff');
+  font-weight: 100;
+}
+
+/* Nevo Thin Italic */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Thin Italic.woff')
+    format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+
+/* Nevo Medium */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Medium.woff')
+    format('woff');
+  font-weight: 200;
+}
+
+/* Nevo Medium Italic */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Medium Italic.woff')
+    format('woff');
+  font-weight: 200;
+  font-style: italic;
+}
+
+/* Nevo Bold */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Bold.woff')
+    format('woff');
+  font-weight: bold;
+}
+
+/* Nevo Semi Bold */
+@font-face {
+  font-family: 'Nevo';
+  src:
+    local('Nevo'),
+    url('../assets/fonts/Nevo Semi Bold.woff')
+    format('woff');
+  font-weight: bold;
+  font-size: larger;
+}
+
+

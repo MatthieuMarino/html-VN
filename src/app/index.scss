@@ -13,6 +13,7 @@ $topbar-background: #5AADBB;
 @include foundation-everything(true);
 @include foundation-flex-grid;
 @include foundation-flex-classes;
+@import 'fonts';
 
 $fa-font-path: "../../bower_components/font-awesome/fonts";
 
