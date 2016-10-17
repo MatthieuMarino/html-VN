@@ -11,8 +11,11 @@ import { NavbarDirective } from './components/navbar/navbarDirective';
 import { CharacterDirective } from './components/character/characterDirective';
 import { InterfaceDirective } from './components/interface/interfaceDirective';
 import { StoryController } from './story/storyController';
+import { StoryCreateController } from './story/create/storyCreateController';
 import { ResultController } from './result/result.controller';
 import { StoriesFactory } from './components/stories/storiesFactory';
+import { StoriesController } from './story/list/storiesController';
+import { StoryEditController } from './story/edit/storyEditController';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase'])
   .constant('Firebase',firebase)
@@ -25,7 +28,10 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)
   .controller('Story', StoryController)
+  .controller('StoryCreate', StoryCreateController)
   .controller('Result', ResultController)
+  .controller('Stories', StoriesController)
+  .controller('StoryEdit', StoryEditController)
   .directive('navbar', NavbarDirective)
   .directive('character', CharacterDirective)
   .directive('interface', InterfaceDirective)

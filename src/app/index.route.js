@@ -22,6 +22,21 @@ export function routerConfig ($routeProvider) {
       controller: 'Story',
       resolve:redirectToLogin
     })
+    .when('/stories', {
+      templateUrl: 'app/story/list/stories.html',
+      controller: 'Stories',
+      resolve:redirectToLogin
+    })
+    .when('/create', {
+      templateUrl: 'app/story/create/storyCreate.html',
+      controller: 'StoryCreate',
+      resolve:redirectToLogin
+    })
+    .when('/edit/:storyId', {
+      templateUrl: 'app/story/edit/storyEdit.html',
+      controller: 'StoryEdit',
+      resolve:redirectToLogin
+    })
     .when('/result', {
       templateUrl: 'app/result/result.html',
       controller: 'Result',

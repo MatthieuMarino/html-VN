@@ -17,4 +17,13 @@ export class StoriesFactory {
   getStory(id){
     return this.$firebaseObject(this.storiesRef.child(id));
   }
+
+  getStories(){
+    return this.$firebaseArray(this.storiesRef);
+  }
+
+  createStory(story){
+    var newStory = angular.copy(story);
+    return this.Firebase.database().ref('stories').push(newStory);
+  }
 }
