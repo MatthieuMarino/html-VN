@@ -1,8 +1,9 @@
-navbar
-h2 Bienvenue dans "Nom à déterminer"
-
-a(ng-href='#/stories').button.success Commencer
-
-
-a(ng-if='unlock',ng-href='#/create/').button.secondary Créer une histoire
+section.main
+  div.small-12.column
+    navbar
+  div.row.align-middle.align-center.welcome
+    div.small-12.column.text-center
+      h2 Bienvenue dans "Nom à déterminer"
+      a(ng-href='#/stories').button.success Commencer
+      a(ng-if='unlock',ng-href='#/create/').button.secondary Créer une histoire
 
