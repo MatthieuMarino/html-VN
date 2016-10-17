@@ -4,12 +4,12 @@ export class FileUploader {
   constructor($q, Firebase) {
     'ngInject';
 
-    var ref = Firebase.storage().ref().child('file');
+    var ref = Firebase.storage().ref();
 
-    var uploadFile = function (pic, bind) {
+    var uploadFile = function (pic, type, bind) {
       let defer = $q.defer();
       let name = new Date().getTime();
-      var uploadTask = ref.child('/' + name).put(pic);
+      var uploadTask = ref.child(type+'/' + name).put(pic);
       if (pic.size <= 52428800) {
         uploadTask.on(Firebase.storage.TaskEvent.STATE_CHANGED,
           function (snapshot) {
@@ -46,8 +46,13 @@ export class FileUploader {
       return defer.promise;
     };
 
+    var saveBackground = function(background, url){
+      Firebase.database().ref('backgrounds/'+background).set(url);
+    };
+
     return {
-      uploadFile
+      uploadFile,
+      saveBackground
     }
 
   }

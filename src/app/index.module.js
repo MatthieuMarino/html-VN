@@ -17,8 +17,9 @@ import { StoriesFactory } from './components/stories/storiesFactory';
 import { StoriesController } from './story/list/storiesController';
 import { StoryEditController } from './story/edit/storyEditController';
 import { FileUploader } from './components/uploader/fileUploader';
+import { ResourcesController } from './resources/resourcesController';
 
-angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase'])
+angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
   .config(config)
   .config(routerConfig)
@@ -34,6 +35,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .controller('Result', ResultController)
   .controller('Stories', StoriesController)
   .controller('StoryEdit', StoryEditController)
+  .controller('Resources', ResourcesController)
   .directive('navbar', NavbarDirective)
   .directive('character', CharacterDirective)
   .directive('interface', InterfaceDirective)
