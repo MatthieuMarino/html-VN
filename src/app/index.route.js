@@ -14,8 +14,7 @@ export function routerConfig ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      resolve:redirectToLogin
+      controller: 'MainController'
     })
     .when('/story/:storyId', {
       templateUrl: 'app/story/story.html',
