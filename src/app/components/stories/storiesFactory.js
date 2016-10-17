@@ -30,4 +30,12 @@ export class StoriesFactory {
     var newStory = angular.copy(story);
     return this.Firebase.database().ref('stories').push(newStory);
   }
+
+  getBackgrounds(){
+    return this.$firebaseObject(this.Firebase.database().ref('backgrounds'));
+  }
+
+  getCharacters(){
+    return this.$firebaseArray(this.Firebase.database().ref('characters'));
+  }
 }

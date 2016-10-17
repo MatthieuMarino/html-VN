@@ -1,5 +1,5 @@
 export class StoryCreateController {
-  constructor($scope, $location, UserFactory, StoriesFactory) {
+  constructor($scope, $location, UserFactory, StoriesFactory, FileUploader) {
     'ngInject';
 
     $scope.$watch(function () {
@@ -12,6 +12,7 @@ export class StoryCreateController {
           UserFactory.isAdmin($scope.user.$id).then(function(admin){
             if(admin){
               $scope.unlock = true;
+              $scope.backgrounds = StoriesFactory.getBackgrounds();
             }else{
               $location.path('/')
             }
@@ -43,6 +44,12 @@ export class StoryCreateController {
         $location.path('/stories');
       })
     };
+
+    $scope.upload = function(question, file){
+      FileUploader.uploadFile(file,"backgrounds").then(function(url){
+        question.background = url;
+      })
+    }
 
 
   }
