@@ -17,7 +17,29 @@
   width: 924px;
   background-color: #0a0a0a;
   border-radius: 15px;
+  position: relative;
+  z-index: 3;
   overflow: scroll;
+
+
+}
+
+.cont-interface {
+  position: relative;
+  .userCharacter {
+    position: absolute;
+    top: -315px;
+    left: 165px;
+    z-index: 1;
+  }
+  button.button.alert {
+    position: absolute;
+    top: -17px;
+    left: 150px;
+    width: 185px;
+    border-radius: 10px;
+    z-index: 4;
+  }
 }
 
 

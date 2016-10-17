@@ -16,6 +16,7 @@ import { ResultController } from './result/result.controller';
 import { StoriesFactory } from './components/stories/storiesFactory';
 import { StoriesController } from './story/list/storiesController';
 import { StoryEditController } from './story/edit/storyEditController';
+import { FileUploader } from './components/uploader/fileUploader';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase'])
   .constant('Firebase',firebase)
@@ -24,6 +25,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .provider('AuthService', AuthServiceProvider)
   .service('UserFactory', UserFactory)
   .service('StoriesFactory', StoriesFactory)
+  .service('FileUploader', FileUploader)
   .controller('MainController', MainController)
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)
