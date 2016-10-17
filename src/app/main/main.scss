@@ -6,12 +6,12 @@
     padding: 120px 0;
     position: relative;
 
-    .logo {
-      height: 200px;
-      img {
-        //position: absolute;
-        //top: 55px;
-        //left: 390px;
+    .cont-logo {
+      position: relative;
+      .logo {
+        height: 200px;
+        position: absolute;
+        top: -80px;
       }
     }
 
