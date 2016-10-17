@@ -1,13 +1,13 @@
-div(ng-if='storyData')
+div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ urlBack }})'}").back-play.border
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
-  div(ng-style="{'background-image': url('../../assets/images/background.svg')}")
-    div.row
-      div.small-12.column.text-right
-        div.button.alert menu
-      //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
-  div
-    interface(data='storyData.questions[index]', action='chooseAnswer')
-  //div story {{story.questions[index]}}
-  //background
+  div.row.animation.border.medium-collapse.large-collapse
+    div.small-12.column.text-right
+      div.button.alert menu
+    //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
+  div.row.interface.border
+    div.small-12.column
+      interface(data='storyData.questions[index]', action='chooseAnswer')
+    //div story {{story.questions[index]}}
+    //background
 
 

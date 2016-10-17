@@ -5,6 +5,8 @@ export class StoryController {
     $scope.storyId = $routeParams.storyId;
     console.log('$scope.storyId', $scope.storyId);
 
+    $scope.urlBack = './assets/images/background.svg';
+
     $scope.$watch(function () {
       return UserFactory.isConnected()
     }, function (newValue) {
