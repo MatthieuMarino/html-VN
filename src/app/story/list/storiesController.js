@@ -26,6 +26,10 @@ export class StoriesController {
 
     $scope.index = 0;
 
+    $scope.deleteStory = function(story){
+      StoriesFactory.deleteStory(story.$id);
+    }
+
 
   }
 

@@ -14,36 +14,6 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          // $scope.storyData = {}
-          // var data = {
-          //   type: 'simple',
-          //   questions: [
-          //     {
-          //       text: 'Youpi tralala',
-          //       characters: [
-          //         {
-          //           name: 'Nobody'
-          //         }
-          //       ],
-          //       answers: [
-          //         {text: 'Oh oui alors', id:0},
-          //         {text: 'Oh non alors', id:1}
-          //       ]
-          //     },
-          //     {
-          //       text: 'never gonna give you up',
-          //       characters: [
-          //         {
-          //           name: 'Nobody'
-          //         }
-          //       ],
-          //       answers: [
-          //         {text: 'oh sh-', id:0},
-          //         {text: 'Fly, you fools', id:1}
-          //       ]
-          //     }
-          //   ]
-          // };
           StoriesFactory.getStory($scope.storyId).$loaded(function(data){
             console.log('data', data);
             $scope.storyData = data;
@@ -55,18 +25,12 @@ export class StoryController {
     });
 
     $scope.index = 0;
+    $scope.sound = true;
+    $scope.menu = false;
 
     $scope.chooseAnswer = function (answer) {
       console.log('answer', answer);
       UserFactory.saveResult($scope.user.$id,$scope.storyId,$scope.index, {id:answer.id,text:answer.text});
-      // if(!$scope.user.walkthroughs){
-      //   $scope.user.walkthroughs = {};
-      // }
-      // if(!$scope.user.walkthroughs[$scope.storyId] ){
-      //   $scope.user.walkthroughs[$scope.storyId] = {};
-      // }
-      // $scope.user.walkthroughs[$scope.storyId][$scope.index] = answer;
-      // $scope.user.$save();
       if($scope.index < $scope.storyData.questions.length -1){
         $scope.index++;
         console.log('$scope.index', $scope.index);
@@ -78,6 +42,26 @@ export class StoryController {
         $location.path('/result');
       }
 
+    };
+
+    $scope.return = function(){
+      if($scope.index>0){
+        $scope.index--;
+      }
+    };
+
+    $scope.quit = function(){
+      $location.path('/');
+    };
+
+    $scope.stopSound = function(){
+      //TODO stop sound
+      console.log('Stop sound');
+      $scope.sound = !$scope.sound;
+    };
+
+    $scope.showMenu = function(){
+      $scope.menu = !$scope.menu;
     }
 
 
