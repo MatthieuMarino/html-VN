@@ -17,6 +17,7 @@ export function CharacterDirective($compile) {
   function CharacterCtrl($scope) {
     'ngInject';
 
+    console.log('scope data character ', $scope.data);
     $scope.characterPic = " ../../assets/images/char.svg ";
   }
 
@@ -24,8 +25,7 @@ export function CharacterDirective($compile) {
 
     scope.$watch('characterPic', function(){
       $('character').empty();
-      $('character').css({"width": "150px", "height": "300px"}).append($compile(`<img src=" ${ scope.characterPic } "/>`)(scope));
-      console.log('watcher characterPic', scope.characterPic);
+      $('character').css({"width": "150px", "height": "300px"}).append($compile(`<img src=" ${ scope.data } "/>`)(scope));
     });
   }
 
