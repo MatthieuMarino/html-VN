@@ -1,3 +1,4 @@
-div {{data.text}}
-div(ng-repeat='answer in data.answers')
-  div(ng-click='action(answer)').button {{answer.text}}
+div.storyText {{data.text}}
+div.row
+  div(ng-repeat='answer in data.answers').small-6.column
+    div(ng-click='action(answer)').button {{answer.text}}
