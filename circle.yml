@@ -1,0 +1,17 @@
+general:
+  branches:
+    only:
+      - master
+test:
+  pre:
+    - bower install
+    - gulp clean
+    - rm -rf .eslintrc
+  override:
+    - gulp build
+deployment:
+  production:
+    branch: master
+    commands:
+      - npm i -g firebase-tools
+      - firebase deploy --token $FIREBASE_DEPLOY_TOKEN --non-interactive
