@@ -22,6 +22,10 @@ export class StoriesFactory {
     return this.$firebaseArray(this.storiesRef);
   }
 
+  deleteStory(storyId){
+    this.storiesRef.child(storyId).remove();
+  }
+
   createStory(story){
     var newStory = angular.copy(story);
     return this.Firebase.database().ref('stories').push(newStory);

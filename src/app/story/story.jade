@@ -2,7 +2,12 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ ur
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.row.animation.medium-collapse.large-collapse
     div.small-12.column.text-right
-      div.button.alert menu
+      span(ng-click='stopSound()')
+        i(ng-if='!sound').fa.fa-volume-off
+        i(ng-if='sound').fa.fa-volume-up
+      div(ng-click='showMenu()').button.alert menu
+        p(ng-if='menu', ng-click='return()').button.secondary Retour en arrière
+        p(ng-if='menu', ng-click='quit()').button.secondary Retourner au menu
     //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
   div.cont-interface
     character.userCharacter
