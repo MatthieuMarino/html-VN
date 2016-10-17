@@ -13,12 +13,8 @@ export class StoriesController {
           UserFactory.isAdmin($scope.user.$id).then(function(admin){
             if(admin){
               $scope.unlock = true;
-            }else{
-              $location.path('/')
             }
-          }).catch((function(){
-            $location.path('/');
-          }))
+          })
         });
 
       }

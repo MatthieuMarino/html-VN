@@ -12,10 +12,20 @@ export class StoryEditController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          StoriesFactory.getStory($scope.storyId).$loaded(function(data){
-            console.log('data', data);
-            $scope.story = data;
-          });
+          UserFactory.isAdmin($scope.user.$id).then(function(admin){
+            if(admin){
+              $scope.unlock = true;
+              StoriesFactory.getStory($scope.storyId).$loaded(function(data){
+                console.log('data', data);
+                $scope.story = data;
+              });
+            }else{
+              $location.path('/')
+            }
+          }).catch((function(){
+            $location.path('/');
+          }));
+
           // console.log('$scope.storyData', $scope.storyData);
         });
 
