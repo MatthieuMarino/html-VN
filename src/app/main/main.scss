@@ -1,9 +1,8 @@
 .main {
-  //height: 100vh;
   background-color: #d1605a;
   position: relative;
   .welcome {
-    padding: 120px 0;
+    padding: 215px 0 0 0 ;
     position: relative;
 
     .cont-logo {
@@ -14,22 +13,20 @@
         top: -80px;
       }
     }
+  }
+}
 
-    a {
-      color: white;
-      text-align: center;
-      .btn {
-        margin: 30px auto;
-        text-align: center;
-        background-color: #b3b3b3;
-        border: 6px solid white;
-        border-radius: 20px;
-        font-size: 2.9rem;
-        font-family: Nevo;
-        font-weight: bold;
-        text-transform: uppercase;
-        width: 210px;
-      }
-    }
+.cont-btn {
+  margin: 40px auto;
+
+  button.button {
+    background-color: #b3b3b3;
+    border: 6px solid white;
+    border-radius: 20px;
+    font-family: Nevo;
+    font-weight: bold;
+    font-size: 2.9rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
   }
 }
