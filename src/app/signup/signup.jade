@@ -10,6 +10,11 @@ div
   input(type='password', ng-model='user.password', ng-required='true', placeholder='Mot de passe', minlength='6').small-offset-1.small-4
   input(type='password', ng-model='password', ng-required='true', placeholder='Confirmer le mot de passe', minlength='6').small-offset-1.small-4
 
+  br
+  h4 Choisir son personnage
+  div.row
+    div(ng-click='setMan()', ng-class='{success: user.gender == "man"}').small-6 Homme
+    div(ng-click='setWoman()', ng-class='{success: user.gender == "woman"}').small-6 Femme
   div.small-offset-2
     button.button.success(ng-click='createUser(user)') Créer
     a.button.alert(ng-href='#/') Abandonner

@@ -10,6 +10,11 @@ h4 Questions
 div(ng-repeat='question in story.questions').small-offset-1
   div Texte :
     input(ng-model='question.text')
+  div Background
+    select(ng-model='question.background')
+      option(ng-repeat='(background,url) in backgrounds', value='{{url}}') {{background}}
+    //div(ngf-select="upload(question, $file)").button Selectionner un fichier
+    //div {{question.background}}
   div(ng-repeat='answer in question.answers').small-offset-1
     input(ng-model='answer.id', placeholder='Identifiant')
     input(ng-model='answer.text', placeholder='Text')

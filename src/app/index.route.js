@@ -14,8 +14,7 @@ export function routerConfig ($routeProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'app/main/main.html',
-      controller: 'MainController',
-      resolve:redirectToLogin
+      controller: 'MainController'
     })
     .when('/story/:storyId', {
       templateUrl: 'app/story/story.html',
@@ -40,6 +39,11 @@ export function routerConfig ($routeProvider) {
     .when('/result', {
       templateUrl: 'app/result/result.html',
       controller: 'Result',
+      resolve:redirectToLogin
+    })
+    .when('/resources', {
+      templateUrl: 'app/resources/resources.html',
+      controller: 'Resources',
       resolve:redirectToLogin
     })
     .when('/login', {

@@ -21,7 +21,17 @@ export class SignupPageController {
       }else{
         $scope.noMatch = true;
       }
-    }
+    };
+
+    $scope.setMan = function(){
+      $scope.user.gender = 'man';
+      //TODO setup character
+    };
+
+    $scope.setWoman = function(){
+      $scope.user.gender = 'woman';
+      //TODO setup character
+    };
 
   }
 
