@@ -2,6 +2,8 @@ export class ResourcesController {
   constructor($scope, $location, UserFactory, FileUploader) {
     'ngInject';
 
+    $scope.character = {moods: {}};
+
     $scope.$watch(function () {
       return UserFactory.isConnected()
     }, function (newValue) {
@@ -31,8 +33,17 @@ export class ResourcesController {
 
     $scope.saveBackground = function(){
       FileUploader.saveBackground($scope.background, $scope.backgroundURL)
-    }
+    };
 
+    $scope.uploadCharacter = function(mood, file){
+      FileUploader.uploadFile(file,"characters").then(function(url){
+        $scope.character.moods[mood] = url;
+      })
+    };
+
+    $scope.saveCharacter = function(character){
+      FileUploader.saveCharacter(character);
+    }
 
   }
 

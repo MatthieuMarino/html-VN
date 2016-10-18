@@ -50,9 +50,14 @@ export class FileUploader {
       Firebase.database().ref('backgrounds/'+background).set(url);
     };
 
+    var saveCharacter = function(character){
+      Firebase.database().ref('characters/'+character.name).set(character);
+    };
+
     return {
       uploadFile,
-      saveBackground
+      saveBackground,
+      saveCharacter
     }
 
   }
