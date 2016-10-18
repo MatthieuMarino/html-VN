@@ -37,14 +37,14 @@ section.signup
               input(ng-model='user.email', type="text", ng-required='true')
         div.row.align-center.characterUser
           span.small-5.column.cont-user
-            div(ng-click='setMan()').user.float-right
-              img(src='./assets/images/MainMaleNeutral.svg', width=80)
+            div(ng-click='setCharacter(manUser)').user.float-right
+              img(ng-src="{{ manUser.moods.NEUTRAL }}", width=80)
           span.small-5.column.cont-user
-            div(ng-click='setWoman()').user.float-left
-              img(src='./assets/images/user-woman.svg', width=80)
+            div(ng-click='setCharacter(womanUser)').user.float-left
+              img(ng-src="{{ womanUser.moods.NEUTRAL }}", width=80)
         div.row.align-center
           div.small-12.column
-            a(ng-href='#/stories')
+            a(ng-click='createUser(user)')
               button.button Jouer
 
 
