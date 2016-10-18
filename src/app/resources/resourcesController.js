@@ -43,6 +43,7 @@ export class ResourcesController {
 
     $scope.saveCharacter = function(character){
       FileUploader.saveCharacter(character);
+      console.log('fichier enregistré');
     }
 
   }

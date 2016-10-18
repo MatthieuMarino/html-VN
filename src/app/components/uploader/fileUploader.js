@@ -51,6 +51,7 @@ export class FileUploader {
     };
 
     var saveCharacter = function(character){
+      console.log(character);
       Firebase.database().ref('characters/'+character.name).set(character);
     };
 
