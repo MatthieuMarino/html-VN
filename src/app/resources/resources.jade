@@ -1,10 +1,18 @@
 h3 Uploader un background
 div(ngf-select="uploadBackground($file)").button Selectionner un fichier
 input(ng-model='background')
-button(ng-click='saveBackground()') Sauvegarder le background
+button(ng-click='saveBackground()').button Sauvegarder le background
 
-//TODO the same for characters (think to add moods)
-//h3 Uploader un background
-//div(ngf-select="uploadBackground($file)").button Selectionner un fichier
-//input(ng-model='background')
-//button(ng-click='saveBackground()') Sauvegarder le background
+
+h3 Uploader un personnage
+input(ng-model='character.name', placeholder='nom')
+
+div Happy
+  div(ngf-select="uploadCharacter('HAPPY',$file)").button Selectionner un fichier
+div Neutral
+  div(ngf-select="uploadCharacter('NEUTRAL',$file)").button Selectionner un fichier
+div Smiling
+  div(ngf-select="uploadCharacter('SMILING',$file)").button Selectionner un fichier
+div Sad
+  div(ngf-select="uploadCharacter('SAD',$file)").button Selectionner un fichier
+button(ng-click='saveCharacter(character)') Sauvegarder le personnage
