@@ -1,5 +1,5 @@
 export class SignupPageController {
-  constructor ($scope, $location, UserFactory, ResourcesFactory) {
+  constructor ($scope, $location, UserFactory, ResourcesFactory, AuthService) {
     'ngInject';
 
     $scope.user = {
@@ -7,6 +7,23 @@ export class SignupPageController {
       lastName: '',
       email: ''
     };
+
+    $scope.$watch(function () {
+      return AuthService.isConnected()
+    }, function (newValue) {
+      // console.log('newValue', newValue);
+      if (newValue) {
+        if($location.search().target){
+          var target = $location.search().target;
+          if(!target){
+            target = '/stories';
+          }
+          $location.search({});
+          $location.path(target);
+
+        }
+      }
+    });
 
 
     ResourcesFactory.getCharacters().$loaded(function(characters) {
