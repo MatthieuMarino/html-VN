@@ -6,7 +6,7 @@ export function routerConfig ($routeProvider) {
       'ngInject';
       if(!AuthService.isConnected()){
         $location.search({target:$location.path()});
-        $location.path('/login');
+        $location.path('/signup');
       }
     }
   };
@@ -48,11 +48,11 @@ export function routerConfig ($routeProvider) {
     })
     .when('/login', {
       templateUrl: 'app/login/login.html',
-      controller: 'Login',
+      controller: 'Login'
     })
     .when('/signup', {
       templateUrl: 'app/signup/signup.html',
-      controller: 'Signup',
+      controller: 'Signup'
     })
     .otherwise({
       redirectTo: '/login'

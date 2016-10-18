@@ -2,22 +2,23 @@
 
 import { config } from './index.config';
 import { routerConfig } from './index.route';
-import { MainController } from './main/main.controller';
 import { AuthServiceProvider } from './auth/auth.provider';
-import { LoginController } from './login/login.controller';
-import { UserFactory } from './components/users/userFactory';
-import { SignupPageController } from './signup/signup.controller';
 import { NavbarDirective } from './components/navbar/navbarDirective';
 import { CharacterDirective } from './components/character/characterDirective';
 import { InterfaceDirective } from './components/interface/interfaceDirective';
+import { MainController } from './main/main.controller';
+import { LoginController } from './login/login.controller';
+import { SignupPageController } from './signup/signup.controller';
 import { StoryController } from './story/storyController';
 import { StoryCreateController } from './story/create/storyCreateController';
 import { ResultController } from './result/result.controller';
-import { StoriesFactory } from './components/stories/storiesFactory';
+import { ResourcesController } from './resources/resourcesController';
 import { StoriesController } from './story/list/storiesController';
 import { StoryEditController } from './story/edit/storyEditController';
 import { FileUploader } from './components/uploader/fileUploader';
-import { ResourcesController } from './resources/resourcesController';
+import { UserFactory } from './components/users/userFactory';
+import { StoriesFactory } from './components/stories/storiesFactory';
+import { ResourcesFactory } from './resources/resources.service';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
@@ -27,6 +28,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .service('UserFactory', UserFactory)
   .service('StoriesFactory', StoriesFactory)
   .service('FileUploader', FileUploader)
+  .service('ResourcesFactory', ResourcesFactory)
   .controller('MainController', MainController)
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)

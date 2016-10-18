@@ -1,0 +1,44 @@
+.main {
+  background-color: $color-g56;
+  position: relative;
+  height: 100vh;
+  .welcome {
+    padding: 215px 0 0 0 ;
+    position: relative;
+
+    .cont-logo {
+      position: relative;
+      .logo {
+        height: 200px;
+        position: absolute;
+        top: -80px;
+      }
+    }
+  }
+}
+
+.cont-nav{
+  //position: fixed;
+}
+
+.cont-btn {
+  margin: 40px auto;
+
+  button.button {
+    height: 70px;
+    background-color: #b3b3b3;
+    border: 6px solid white;
+    border-radius: 20px;
+    font-family: Nevo;
+    font-weight: 600;
+    font-size: 2.9rem;
+    padding: 10px 20px;
+    text-transform: uppercase;
+  }
+  button.button:hover {
+    background-color: white;
+    border: 6px solid $gray-g56;
+    color: $gray-g56;
+  }
+}
+

@@ -1,21 +1,50 @@
-div
-  h2 Nouvel utilisateur
-  div(ng-if='error && error.length>0') Une erreur est survenue : {{error}}
-  div.small-offset-1
-    input(ng-model='user.firstName', placeholder='Prénom', ng-required='true')
-    input(ng-model='user.lastName', placeholder='Nom', ng-required='true')
-    input(ng-model='user.email', placeholder='Email', ng-required='true')
-  br
-  div(ng-if='noMatch').wrongPassword.small-offset-1 Les mots de passe ne correspondent pas
-  input(type='password', ng-model='user.password', ng-required='true', placeholder='Mot de passe', minlength='6').small-offset-1.small-4
-  input(type='password', ng-model='password', ng-required='true', placeholder='Confirmer le mot de passe', minlength='6').small-offset-1.small-4
+//div
+//  h2 Nouvel utilisateur
+//  div(ng-if='error && error.length>0') Une erreur est survenue : {{error}}
+//  div.small-offset-1
+//    input(ng-model='user.firstName', placeholder='Prénom', ng-required='true')
+//    input(ng-model='user.lastName', placeholder='Nom', ng-required='true')
+//    input(ng-model='user.email', placeholder='Email', ng-required='true')
+//  br
+//  div(ng-if='noMatch').wrongPassword.small-offset-1 Les mots de passe ne correspondent pas
+//  input(type='password', ng-model='user.password', ng-required='true', placeholder='Mot de passe', minlength='6').small-offset-1.small-4
+//  input(type='password', ng-model='password', ng-required='true', placeholder='Confirmer le mot de passe', minlength='6').small-offset-1.small-4
+//
+//  br
+//  h4 Choisir son personnage
+//  div.row
+//    div(ng-click='setMan()', ng-class='{success: user.gender == "man"}').small-6 Homme
+//    div(ng-click='setWoman()', ng-class='{success: user.gender == "woman"}').small-6 Femme
+//  div.small-offset-2
+//    button.button.success(ng-click='createUser(user)') Créer
+//    a.button.alert(ng-href='#/') Abandonner
+//
 
-  br
-  h4 Choisir son personnage
-  div.row
-    div(ng-click='setMan()', ng-class='{success: user.gender == "man"}').small-6 Homme
-    div(ng-click='setWoman()', ng-class='{success: user.gender == "woman"}').small-6 Femme
-  div.small-offset-2
-    button.button.success(ng-click='createUser(user)') Créer
-    a.button.alert(ng-href='#/') Abandonner
+
+section.signup
+  div(ng-if='error && error.length>0') Une erreur est survenue : {{error}}
+  div.row.align-center.align-middle
+    div.column.text-center.cont-logo
+      img(src='./assets/images/logoGarage56.svg', width=170)
+    div.small-12.column.text-center
+      form
+        div.row.align-center
+          div.small-5.column.text-center
+            label Ton Nom
+              input(ng-model='user.lastName', type="text", ng-required='true')
+          div.small-5.column.text-center
+            label Ton Mail
+              input(ng-model='user.email', type="text", ng-required='true')
+        div.row.align-center.characterUser
+          span.small-5.column.cont-user
+            div(ng-click='setCharacter(manUser)').user.float-right
+              img(ng-src="{{ manUser.moods.NEUTRAL }}", width=80)
+          span.small-5.column.cont-user
+            div(ng-click='setCharacter(womanUser)').user.float-left
+              img(ng-src="{{ womanUser.moods.NEUTRAL }}", width=80)
+        div.row.align-center
+          div.small-12.column
+            a(ng-click='createUser(user)')
+              button.button Jouer
+
 
