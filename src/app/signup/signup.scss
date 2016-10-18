@@ -1,3 +1,73 @@
 .wrongPassword {
   color: red;
 }
+
+.signup {
+  background-color: $color-g56;
+  height: 100vh;
+
+  .cont-logo {
+    padding: 40px;
+  }
+
+  form {
+    label {
+      color: white;
+      font-size: 3.4rem;
+      font-family: Nevo;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    input {
+      line-height: 2rem;
+      height: 70px;
+      background-color: $gray-g56;
+      border-radius: 10px;
+      border: 6px solid white;
+      font-size: 2.5rem;
+      max-width: 372px;
+      margin: auto;
+    }
+  }
+
+  .characterUser {
+    padding: 40px;
+    .cont-user {
+        //padding: 40px;
+      .user {
+        background-color: $gray-g56;
+        width: 105px;
+        margin: auto;
+        border-radius: 15px;
+        img {
+          height: 180px;
+        }
+      }
+    }
+  }
+
+
+
+
+  button.button {
+    height: 70px;
+    background-color: #b3b3b3;
+    border: 6px solid white;
+    border-radius: 10px;
+    font-family: Nevo;
+    font-weight: bold;
+    font-size: 3.4rem;
+    padding: 10px 100px;
+    text-transform: uppercase;
+  }
+  button.button:hover {
+    background-color: white;
+    border: 6px solid $gray-g56;
+    color: $gray-g56;
+  }
+
+  .no-padd {
+    padding: 0;
+  }
+
+}

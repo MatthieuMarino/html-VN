@@ -6,7 +6,7 @@ export function routerConfig ($routeProvider) {
       'ngInject';
       if(!AuthService.isConnected()){
         $location.search({target:$location.path()});
-        $location.path('/login');
+        $location.path('/signup');
       }
     }
   };
