@@ -18,7 +18,10 @@ export function NavbarDirective() {
         }
       });
 
-      $scope.logOut = AuthService.disconnect.bind(AuthService);
+      $scope.logOut = function () {
+        AuthService.disconnect.bind(AuthService);
+        $location.path('/login');
+      }
     }
   };
 

@@ -1,9 +1,18 @@
 export class StoryEditController {
-  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory, FileUploader) {
+  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory, FileUploader, ResourcesFactory) {
     'ngInject';
 
     $scope.storyId = $routeParams.storyId;
     console.log('$scope.storyId', $scope.storyId);
+
+    $scope.columns = [];
+
+    for (var i = 0; i < 8; i++) {
+      $scope.columns[i] = {
+        "name": "column " + i,
+        'value': 115.50 * (i + 1) + 50
+      }
+    }
 
     $scope.$watch(function () {
       return UserFactory.isConnected()
@@ -12,19 +21,20 @@ export class StoryEditController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          UserFactory.isAdmin($scope.user.$id).then(function(admin){
-            if(admin){
+          UserFactory.isAdmin($scope.user.$id).then(function (admin) {
+            if (admin) {
               $scope.unlock = true;
-              StoriesFactory.getStory($scope.storyId).$loaded(function(data){
+              StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
                 console.log('data', data);
                 $scope.story = data;
               });
               $scope.backgrounds = StoriesFactory.getBackgrounds();
+              $scope.characters = ResourcesFactory.getCharacters();
               console.log('$scope.backgrounds', $scope.backgrounds);
-            }else{
+            } else {
               $location.path('/')
             }
-          }).catch((function(){
+          }).catch((function () {
             $location.path('/');
           }));
 
@@ -36,27 +46,40 @@ export class StoryEditController {
 
     $scope.index = 0;
 
-    $scope.addQuestion = function(){
+    $scope.addQuestion = function () {
+      if ($scope.story.questions) {
+        $scope.story.questions = [];
+      }
       $scope.story.questions.push({
         answers: [],
         characters: []
       })
     };
 
-    $scope.addAnswer = function(question){
+    $scope.addAnswer = function (question) {
+      if (!question.answers) {
+        question.answers = [];
+      }
       question.answers.push({})
     };
 
-    $scope.saveStory = function(story){
-      story.$save().then(function(){
+    $scope.saveStory = function (story) {
+      story.$save().then(function () {
         $location.path('/stories')
       })
     };
 
-    $scope.upload = function(question, file){
-      FileUploader.uploadFile(file,"backgrounds").then(function(url){
+    $scope.upload = function (question, file) {
+      FileUploader.uploadFile(file, "backgrounds").then(function (url) {
         question.background = url;
       })
+    }
+
+    $scope.addChara = function (question) {
+      if (!question.characters) {
+        question.characters = [];
+      }
+      question.characters.push({});
     }
 
 

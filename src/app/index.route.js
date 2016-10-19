@@ -54,6 +54,9 @@ export function routerConfig ($routeProvider) {
       templateUrl: 'app/signup/signup.html',
       controller: 'Signup'
     })
+    .when('/followus', {
+      templateUrl: 'app/followus/followus.html'
+    })
     .otherwise({
       redirectTo: '/login'
     });

@@ -18,7 +18,7 @@ import { StoryEditController } from './story/edit/storyEditController';
 import { FileUploader } from './components/uploader/fileUploader';
 import { UserFactory } from './components/users/userFactory';
 import { StoriesFactory } from './components/stories/storiesFactory';
-import { ResourcesFactory } from './resources/resources.service';
+import { ResourcesFactory } from './resources/resources.factory';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
