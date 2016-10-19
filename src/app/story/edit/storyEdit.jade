@@ -64,6 +64,7 @@ div(ng-repeat='question in story.questions').small-12.column
     div(ng-repeat='character in question.characters')
       div {{character.name}}
         select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
+    select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.character.moods')
   button(ng-click='addAnswer(question)').button.success.small-offset-1
     i.fa.fa-plus
     span Ajouter une réponse
