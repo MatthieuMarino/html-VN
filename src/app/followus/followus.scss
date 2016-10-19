@@ -1,6 +1,19 @@
 .followus {
   background-color: $color-g56;
   height: 100vh;
+
+    .female {
+      position: absolute;
+      z-index: 2;
+      top: 25px;
+    }
+    .male {
+      position: absolute;
+      z-index: 2;
+      top: 75px;
+      right: 0;
+    }
+
   .logo {
     padding: 40px;
   }
@@ -8,14 +21,22 @@
     color: white;
     text-transform: uppercase;
     font-family: Nevo;
-    font-weight: 200;
-    padding: 30px;
+    font-weight: bold;
+    font-size: 5rem;
+    margin: 0;
+    padding-top: 40px;
   }
   h3 {
-    padding: 10px;
+    padding-bottom: 20px;
     letter-spacing: 4px;
+    font-size: 3.5rem;
   }
   a {
     color: white;
+    font-family: Nevo;
+    font-weight: bold;
+    .gray {
+      color: $gray-g56;
+    }
   }
 }

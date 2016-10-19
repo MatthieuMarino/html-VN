@@ -1,0 +1,32 @@
+.score {
+  padding: 40px;
+  background-color: $color-g56;
+  height: 100vh;
+  .logo {
+    padding-top: 30px;
+    padding-bottom: 70px;
+  }
+
+  .cont-result {
+    position: relative;
+    .perso-female {
+      z-index: 1;
+      position: absolute;
+      top: -170px;
+      left: 25%;
+    }
+    .perso-male {
+      z-index: 1;
+      position: absolute;
+      top: -140px;
+      right: 25%;
+    }
+    .array {
+      background-color: white ;
+      border: 6px solid #cccccc;
+      border-radius: 30px;
+      height: 420px;
+      z-index: 2;
+    }
+  }
+}
