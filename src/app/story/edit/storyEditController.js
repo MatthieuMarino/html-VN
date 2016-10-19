@@ -47,13 +47,21 @@ export class StoryEditController {
     $scope.index = 0;
 
     $scope.addQuestion = function () {
-      if ($scope.story.questions) {
+      if (!$scope.story.questions) {
         $scope.story.questions = [];
       }
       $scope.story.questions.push({
         answers: [],
         characters: []
       })
+    };
+
+    $scope.deleteQuestion = function(question){
+      delete $scope.story.questions[$scope.story.questions.indexOf(question)];
+    };
+
+    $scope.deleteAnswer = function(question, answer){
+      delete question.answers[question.answers.indexOf(answer)];
     };
 
     $scope.addAnswer = function (question) {
@@ -73,13 +81,17 @@ export class StoryEditController {
       FileUploader.uploadFile(file, "backgrounds").then(function (url) {
         question.background = url;
       })
-    }
+    };
 
     $scope.addChara = function (question) {
       if (!question.characters) {
         question.characters = [];
       }
       question.characters.push({});
+    };
+
+    $scope.deleteChara = function(question, char){
+      delete question.characters[question.characters.indexOf(char)];
     }
 
 
