@@ -19,19 +19,20 @@ div(ng-repeat='question in story.questions').small-12.column
     //div {{question.background}}
   div.row
   div Characters
-    button(ng-click='addChara(question)').small-offset-1 Ajouter un personnage
-    div(ng-repeat='chara in question.characters')
+    button(ng-click='addChara(question)').small-offset-1.button Ajouter un personnage
+    div(ng-repeat='(ckey,chara) in question.characters')
       div {{chara.name}}
-      select(ng-model='chara')
-        option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
+      select(ng-model='question.characters[ckey]', ng-options='char as char.name for char in characters')
+        //option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
 
-      div.row
+      div(ng-if='chara.name').row
         label.small-4.column Humeurs
-          select(ng-model='chara.mood', ng-options = "mood for mood in chara.moods")
-            //option(ng-repeat='(mood,url) in chara.moods', value='{{mood}}') {{mood}}
+        //div {{charaIndex}} {{characters[charaIndex]}}
+        select(ng-model='question.characters[ckey].mood')
+          option(ng-repeat='(mood,url) in chara.moods ', value='{{mood}}') {{mood}}
 
         label.small-4.column Positionnement vertical
-          select(name="colums-v", ng-model= 'chara.column')
+          select(name="colums-v", ng-model= 'chara.columnX')
             option(value="115.50 + 50") column 1
             option(value="115.50 * 2 + 50") column 2
             option(value="115.50 * 3 + 50") column 3
@@ -41,7 +42,7 @@ div(ng-repeat='question in story.questions').small-12.column
             option(value="115.50 * 7 + 50") column 7
             option(value="115.50 * 8 + 50") column 8
         label.small-4.column Positionnement horizontale
-          select(name="colums-h")
+          select(name="colums-h", ng-model= 'chara.columnY')
             option 1
             option 2
             option 3
@@ -51,9 +52,12 @@ div(ng-repeat='question in story.questions').small-12.column
             option 7
             option 8
 
-  div(ng-repeat='answer in question.answers').small-offset-1
+  div(ng-repeat='(akey,answer) in question.answers').small-offset-1
     input(ng-model='answer.id', placeholder='Identifiant')
     input(ng-model='answer.text', placeholder='Text')
+    div(ng-repeat='character in question.characters')
+      div {{character.name}}
+        select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
   button(ng-click='addAnswer(question)').button.success.small-offset-1
     i.fa.fa-plus
     span Ajouter une réponse
