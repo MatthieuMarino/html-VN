@@ -11,7 +11,7 @@ export class LoginController {
         if($location.search().target){
           var target = $location.search().target;
           if(!target){
-            target = '/';
+            target = '/stories';
           }
           $location.search({});
           $location.path(target);

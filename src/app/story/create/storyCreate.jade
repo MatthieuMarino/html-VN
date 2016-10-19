@@ -1,4 +1,4 @@
-h2 Créer une novuelle histoire
+h2 Créer une nouvelle histoire
 
 h4 Titre
 input(ng-model='newStory.title')
@@ -13,6 +13,12 @@ div(ng-repeat='question in newStory.questions').small-offset-1
   div Background
     select(ng-model='question.background')
           option(ng-repeat='(background,url) in backgrounds', value='{{url}}') {{background}}
+  div Characters
+    button(ng-click='addChara(question)').small-offset-1 Ajouter un personnage
+    div(ng-repeat='chara in question.characters')
+      div {{chara.name}}
+      select(ng-model='chara')
+        option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
   div(ng-repeat='answer in question.answers').small-offset-1
     input(ng-model='answer.id', placeholder='Identifiant')
     input(ng-model='answer.text', placeholder='Text')
