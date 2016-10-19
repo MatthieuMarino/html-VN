@@ -3,7 +3,7 @@ export class LoginController {
     'ngInject';
 
     console.log('$location.search().target', $location.search().target);
-    
+
     $scope.$watch(function () {
       return AuthService.isConnected()
     }, function (newValue) {
@@ -16,6 +16,8 @@ export class LoginController {
           }
           $location.search({});
           $location.path(target);
+        } else {
+          $location.path('/stories');
         }
       }
     });
