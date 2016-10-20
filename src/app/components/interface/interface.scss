@@ -1,4 +1,13 @@
 .storyText {
   padding-top: 30px;
-  color: white;
+  color: black;
+  font-family: Nevo;
+  font-weight: 200;
+  font-size: 1.7rem;
+
+  ul {
+    li {
+      text-decoration: none;
+    }
+  }
 }
