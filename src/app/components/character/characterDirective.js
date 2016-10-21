@@ -1,4 +1,4 @@
-export function CharacterDirective($compile) {
+export function CharacterDirective() {
   'ngInject';
 
   let directive = {
@@ -16,7 +16,8 @@ export function CharacterDirective($compile) {
   function CharacterCtrl($scope) {
     'ngInject';
 
-    console.log('scope data character ', $scope.data);
+    console.log('scope data character user ', $scope.data);
+
   }
 
 }

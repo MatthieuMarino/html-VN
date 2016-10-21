@@ -37,9 +37,10 @@
 .cont-interface {
   position: relative;
   .userCharacter {
+    width: 160px;
     position: absolute;
     top: -315px;
-    left: 165px;
+    //left: 165px;
     z-index: 1;
   }
   button.button.alert {

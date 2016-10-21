@@ -4,9 +4,9 @@ export function InterfaceDirective() {
   let directive = {
     restrict: 'E',
     templateUrl: 'app/components/interface/interface.html',
-    controller: function($scope){
+    controller: function(){
       'ngInject';
-      console.log('$scope.data', $scope.data);
+      // console.log('$scope.data', $scope.data);
     },
     scope:{
       data: '=',

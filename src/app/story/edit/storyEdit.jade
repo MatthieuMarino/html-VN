@@ -2,7 +2,7 @@ div.small-12.column
   h2 Modifier une histoire
 
   h4 Titre
-  input(ng-model='story.title')
+  input(type="text", ng-model='story.title')
 
   h4 Description
   input(ng-model='story.description')
@@ -37,26 +37,34 @@ div(ng-repeat='question in story.questions').small-12.column
 
         label.small-4.column Positionnement vertical
           select(name="colums-v", ng-model= 'chara.columnX')
-            option(value="115.50 + 50") column 1
-            option(value="115.50 * 2 + 50") column 2
-            option(value="115.50 * 3 + 50") column 3
-            option(value="115.50 * 4 + 50") column 4
-            option(value="115.50 * 5 + 50") column 5
-            option(value="115.50 * 6 + 50") column 6
-            option(value="115.50 * 7 + 50") column 7
-            option(value="115.50 * 8 + 50") column 8
+            //option(value="115.50 + 50") column 1
+            //option(value="115.50 * 2 + 50") column 2
+            //option(value="115.50 * 3 + 50") column 3
+            //option(value="115.50 * 4 + 50") column 4
+            //option(value="115.50 * 5 + 50") column 5
+            //option(value="115.50 * 6 + 50") column 6
+            //option(value="115.50 * 7 + 50") column 7
+            //option(value="115.50 * 8 + 50") column 8
+            option(value="0") column 1
+            option(value="115.50") column 2
+            option(value="231") column 3
+            option(value="346.5") column 4
+            option(value="462") column 5
+            option(value="577.5") column 6
+            option(value="693") column 7
+            option(value="808.5") column 8
         label.small-4.column Positionnement horizontale
           select(name="colums-h", ng-model= 'chara.columnY')
-            option 1
-            option 2
-            option 3
-            option 4
-            option 5
-            option 6
-            option 7
-            option 8
+            option(value="0") column 1
+            option(value="115.50") column 2
+            option(value="231") column 3
+            option(value="346.5") column 4
+            option(value="462") column 5
+            option(value="577.5") column 6
+            option(value="693") column 7
+            option(value="808.5") column 8
 
-  div(ng-repeat='(akey,answer) in question.answers').small-offset-1
+  div(ng-repeat='(akey,answer) in question.answers')
     input(ng-model='answer.id', placeholder='Identifiant')
     input(ng-model='answer.text', placeholder='Text')
     button(ng-click='question.answers.splice(akey)').button.alert
