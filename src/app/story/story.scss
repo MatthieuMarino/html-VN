@@ -1,3 +1,22 @@
+.cont-stories {
+  max-width: 1024px;
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+  margin: auto;
+}
+
+.cont-stories {
+  position: relative;
+  width: 100%;
+  .character {
+    position: absolute;
+    width: 160px;
+    z-index: 1;
+  }
+}
+
 .cont-menu {
   .button.alert {
     border-radius: 10px;
@@ -7,41 +26,29 @@
   }
 }
 
-
-.back-play {
-  max-width: 1024px;
-  height: 800px;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 50px 0;
-  margin: auto;
-}
-
 .animation {
   height: 493px;
   max-width: 924px;
 }
 
-.interface {
-  height: 207px;
-  max-width: 924px;
-  background-color: white;
-  border-radius: 15px;
-  position: relative;
-  z-index: 3;
-  overflow: scroll;
-
-
-}
 
 .cont-interface {
   position: relative;
   .userCharacter {
     width: 160px;
     position: absolute;
-    top: -315px;
-    //left: 165px;
+    top: -200px;
+    left: 165px;
     z-index: 1;
+  }
+  .interface {
+    height: 207px;
+    max-width: 924px;
+    background-color: white;
+    border-radius: 15px;
+    position: relative;
+    z-index: 3;
+    overflow: scroll;
   }
   button.button.alert {
     position: absolute;
