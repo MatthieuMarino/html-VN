@@ -38,4 +38,8 @@ export class StoriesFactory {
   getCharacters(){
     return this.$firebaseArray(this.Firebase.database().ref('characters'));
   }
+
+  getCharacter(id){
+    return this.$firebaseObject(this.Firebase.database().ref('characters/'+id));
+  }
 }

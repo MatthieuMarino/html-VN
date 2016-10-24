@@ -24,7 +24,20 @@ export class StoriesController {
 
     $scope.deleteStory = function(story){
       StoriesFactory.deleteStory(story.$id);
-    }
+    };
+
+    $scope.switchGender = function(){
+      if(!$scope.user.gender){
+        $scope.user.gender = StoriesFactory.getCharacter('user-woman');
+      }else if($scope.user.gender.name == 'user-woman') {
+        $scope.user.gender = StoriesFactory.getCharacter('user-man');
+      }else if($scope.user.gender.name == 'user-man') {
+        $scope.user.gender = StoriesFactory.getCharacter('user-woman');
+      }
+      $scope.user.gender.$loaded(function(){
+        $scope.user.$save();
+      })
+    };
 
 
   }

@@ -11,3 +11,4 @@ div(ng-if='unlock')
   a(ng-href='#/characters').button Editer les personnages
   a(ng-href='#/create').button Créer une histoire
   a(ng-href='#/resources').button Uploader des ressources
+  button(ng-click='switchGender()').button Changer de genre (actuel : {{user.gender.name}})
