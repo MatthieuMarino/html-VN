@@ -1,11 +1,12 @@
 h3 Liste des histoires
 
-div(ng-repeat='story in stories')
-  div {{story.title}}
-    a(ng-href='#/story/{{story.$id}}').button.success Lancer
-    a(ng-if='unlock', ng-href='#/edit/{{story.$id}}').button.secondary Modifier
-    button(ng-if='unlock', ng-click='deleteStory(story)').button.alert
-      i.fa.fa-trash
+
+div(ng-repeat='story in stories').row
+  div.small-3 {{story.title}}
+  a(ng-href='#/story/{{story.$id}}').button.success.small-1 Lancer
+  a(ng-if='unlock', ng-href='#/edit/{{story.$id}}').button.secondary.small-1 Modifier
+  button(ng-if='unlock', ng-click='deleteStory(story)').button.alert.small-1
+    i.fa.fa-trash
 div(ng-if='unlock')
   a(ng-href='#/characters').button Editer les personnages
   a(ng-href='#/create').button Créer une histoire
