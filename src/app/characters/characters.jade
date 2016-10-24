@@ -1,0 +1,22 @@
+a(ng-href='#/stories').button Menu
+
+h3 Updater un personnage
+div(ng-repeat='character in characters')
+  input(ng-model='character.name', placeholder='nom')
+  span
+    button(ng-click='delete(character)').button.alert
+      i.fa.fa-trash
+  div.row
+    div.small-3.column Happy
+      img(ng-src="{{character.moods['HAPPY']}}")
+      div(ngf-select="uploadCharacter(character, 'HAPPY',$file)").button Selectionner un fichier
+    div.small-3.column Neutral
+      img(ng-src="{{character.moods['NEUTRAL']}}")
+      div(ngf-select="uploadCharacter(character, 'NEUTRAL',$file)").button Selectionner un fichier
+    div.small-3.column Smiling
+      img(ng-src="{{character.moods['SMILING']}}")
+      div(ngf-select="uploadCharacter(character, 'SMILING',$file)").button Selectionner un fichier
+    div.small-3.column Upset
+      img(ng-src="{{character.moods['UPSET']}}")
+      div(ngf-select="uploadCharacter(character, 'UPSET',$file)").button Selectionner un fichier
+  button(ng-click='saveCharacter(character)').button.success Sauvegarder le personnage

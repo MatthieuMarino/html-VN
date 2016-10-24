@@ -1,3 +1,5 @@
+a(ng-href='#/stories').button Menu
+
 form.small-12.column
   div
     h2 Modifier une histoire
@@ -12,8 +14,9 @@ form.small-12.column
   div.small-12.column
     h4 Questions
     div(ng-repeat='question in story.questions')
-      button(ng-click='story.questions.splice($index)').button.alert
-        i.fa.fa-trash
+      div Question {{$index}} :
+        button(ng-click='story.questions.splice($index)').button.alert.small
+          i.fa.fa-trash
       div Titre de la question :
         input(type="text", ng-model='question.text')
       div Choisir le background
@@ -25,9 +28,10 @@ form.small-12.column
         button(ng-click='addChara(question)').button Ajouter un personnage
       div(ng-repeat='(ckey,chara) in question.characters')
         span
+          span Character {{ckey}} :
           strong {{chara.name}}
-        button(ng-click='question.characters.splice(ckey)').button.alert
-          i.fa.fa-trash
+          button(ng-click='question.characters.splice(ckey)').button.alert
+            i.fa.fa-trash
         label Sélection
           select(ng-model='question.characters[ckey]', ng-options='char as char.name for char in characters')
             //option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
@@ -67,18 +71,18 @@ form.small-12.column
               option(value="693") column 7
               option(value="808.5") column 8
 
-    div(ng-repeat='(akey,answer) in question.answers')
-      input(ng-model='answer.id', placeholder='Identifiant')
-      input(ng-model='answer.text', placeholder='Text')
-      button(ng-click='question.answers.splice(akey)').button.alert
-        i.fa.fa-trash
-      div(ng-repeat='character in question.characters')
-        div {{character.name}}
-          select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
-      select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.character.moods')
-    button(ng-click='addAnswer(question)').button.success.small-offset-1
-      i.fa.fa-plus
-      span Ajouter une réponse
+      div(ng-repeat='(akey,answer) in question.answers')
+        input(ng-model='answer.id', placeholder='Identifiant')
+        input(ng-model='answer.text', placeholder='Text')
+        button(ng-click='question.answers.splice(akey)').button.alert
+          i.fa.fa-trash
+        div(ng-repeat='character in question.characters')
+          div {{character.name}}
+            select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
+        select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.character.moods')
+      button(ng-click='addAnswer(question)').button.success.small-offset-1
+        i.fa.fa-plus
+        span Ajouter une réponse
 
   button(ng-click='addQuestion()').button.success
     i.fa.fa-plus

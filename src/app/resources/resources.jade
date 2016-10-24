@@ -1,18 +1,28 @@
+a(ng-href='#/stories').button Menu
+
 h3 Uploader un background
-div(ngf-select="uploadBackground($file)").button Selectionner un fichier
-input(ng-model='background')
-button(ng-click='saveBackground()').button Sauvegarder le background
+p.row
+  img(ng-src="{{backgroundURL}}").small-6
+  div.small-6
+    div(ngf-select="uploadBackground($file)").button Selectionner un fichier
+    input(ng-model='background')
+  div.small-12
+    button(ng-click='saveBackground()').button.success Sauvegarder le background
 
 
 h3 Uploader un personnage
 input(ng-model='character.name', placeholder='nom')
-
-div Happy
-  div(ngf-select="uploadCharacter('HAPPY',$file)").button Selectionner un fichier
-div Neutral
-  div(ngf-select="uploadCharacter('NEUTRAL',$file)").button Selectionner un fichier
-div Smiling
-  div(ngf-select="uploadCharacter('SMILGING',$file)").button Selectionner un fichier
-div Upset
-  div(ngf-select="uploadCharacter('UPSET',$file)").button Selectionner un fichier
-button(ng-click='saveCharacter(character)').button Sauvegarder le personnage
+div.row
+  div.small-3.column Happy
+    img(ng-src="{{character.moods['HAPPY']}}")
+    div(ngf-select="uploadCharacter('HAPPY',$file)").button Selectionner un fichier
+  div.small-3.column Neutral
+    img(ng-src="{{character.moods['NEUTRAL']}}")
+    div(ngf-select="uploadCharacter('NEUTRAL',$file)").button Selectionner un fichier
+  div.small-3.column Smiling
+    img(ng-src="{{character.moods['SMILING']}}")
+    div(ngf-select="uploadCharacter('SMILING',$file)").button Selectionner un fichier
+  div.small-3.column Upset
+    img(ng-src="{{character.moods['UPSET']}}")
+    div(ngf-select="uploadCharacter('UPSET',$file)").button Selectionner un fichier
+button(ng-click='saveCharacter(character)').button.success Sauvegarder le personnage

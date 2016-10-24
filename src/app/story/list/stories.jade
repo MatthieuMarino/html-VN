@@ -6,3 +6,7 @@ div(ng-repeat='story in stories')
     a(ng-if='unlock', ng-href='#/edit/{{story.$id}}').button.secondary Modifier
     button(ng-if='unlock', ng-click='deleteStory(story)').button.alert
       i.fa.fa-trash
+div(ng-if='unlock')
+  a(ng-href='#/characters').button Editer les personnages
+  a(ng-href='#/create').button Créer une histoire
+  a(ng-href='#/resources').button Uploader des ressources
