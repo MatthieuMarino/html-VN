@@ -14,11 +14,12 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
+          console.log('user',  $scope.user );
           StoriesFactory.getStory($scope.storyId).$loaded(function(data){
             // console.log('data', data);
             $scope.storyData = data;
             $scope.characters = $scope.storyData.questions[$scope.index].characters;
-            console.log('storyData', $scope.storyData.questions[$scope.index].characters);
+            // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
           });
           // console.log('$scope.storyData', $scope.storyData);
         });

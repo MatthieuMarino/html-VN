@@ -10,9 +10,8 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ ur
         p(ng-if='menu', ng-click='quit()').button.secondary Retourner au menu
     //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
   div.cont-interface
-    character(user='user.character', style='left: 165px').userCharacter
+    character(data='user.gender', mood='"NEUTRAL"', style='left: 165px').userCharacter
     div(ng-repeat=" perso in storyData.questions[index].characters ")
-      pre {{ perso.name }}
       character(data='perso', mood='"NEUTRAL"', style='right:130px').userCharacter
     button.button.alert {{user.firstName}} {{user.lastName}}
     div.row.interface
@@ -21,5 +20,4 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ ur
     //div story {{story.questions[index]}}
     //background
 
-    pre {{ curCharacters }}
 

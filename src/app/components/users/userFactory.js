@@ -60,7 +60,7 @@ export class UserFactory {
     //thanks firebase for having outdated docs even though you wrote them two months ago
     this.Firebase.auth().signInAnonymously().then(function (firebaseUser) {
       console.log('firebaseUser', firebaseUser);
-      this.userRef.ref().push(user).then(function(ref){
+      this.userRef.child(firebaseUser.uid).set(user).then(function(ref){
         console.log('ref', ref);
         defer.resolve(ref);
       }.bind(this), function(error){
