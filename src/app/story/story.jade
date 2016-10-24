@@ -1,4 +1,4 @@
-div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ urlBack }})'}").back-play
+div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").back-play
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.row.animation.medium-collapse.large-collapse.cont-menu
     div.small-12.column.text-right
@@ -12,7 +12,7 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ ur
   div.cont-interface
     character(data='user.gender', mood='"NEUTRAL"', style='left: 165px').userCharacter
     div(ng-repeat=" perso in storyData.questions[index].characters ")
-      character(data='perso', mood='"NEUTRAL"', style='right:{{perso.columnX}}px, top:{{perso.columnY}}px').userCharacter
+      character(data='perso', mood='"NEUTRAL"', style='right:{{perso.columnX}}px').userCharacter
     button.button.alert {{user.firstName}} {{user.lastName}}
     div.row.interface
       div.small-12.column

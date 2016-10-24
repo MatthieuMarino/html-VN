@@ -51,6 +51,11 @@ export function routerConfig ($routeProvider) {
       controller: 'Characters',
       resolve:redirectToLogin
     })
+    .when('/backgrounds', {
+      templateUrl: 'app/backgrounds/backgrounds.html',
+      controller: 'Backgrounds',
+      resolve:redirectToLogin
+    })
     .when('/login', {
       templateUrl: 'app/login/login.html',
       controller: 'Login'
