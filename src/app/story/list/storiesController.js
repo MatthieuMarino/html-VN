@@ -33,6 +33,8 @@ export class StoriesController {
         $scope.user.gender = StoriesFactory.getCharacter('user-man');
       }else if($scope.user.gender.name == 'user-man') {
         $scope.user.gender = StoriesFactory.getCharacter('user-woman');
+      }else{
+        $scope.user.gender = StoriesFactory.getCharacter('user-woman');
       }
       $scope.user.gender.$loaded(function(){
         $scope.user.$save();
