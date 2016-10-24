@@ -1,76 +1,91 @@
-div.small-12.column
-  h2 Modifier une histoire
+a(ng-href='#/stories').button Menu
 
-  h4 Titre
-  input(ng-model='story.title')
+form.small-12.column
+  div
+    h2 Modifier une histoire
 
-  h4 Description
-  input(ng-model='story.description')
+    h4 Titre
+    input(type="text", ng-model='story.title')
 
-  h4 Questions
+    h4 Description
+    textarea(ng-model='story.description', rows=6)
 
-div(ng-repeat='question in story.questions').small-12.column
-  button(ng-click='story.questions.splice($index)').button.alert
-    i.fa.fa-trash
-  div Texte :
-    input(ng-model='question.text')
-  div Background
-    select(ng-model='question.background')
-      option(ng-repeat='(background,url) in backgrounds', value='{{url}}') {{background}}
-    //div(ngf-select="upload(question, $file)").button Selectionner un fichier
-    //div {{question.background}}
-  div.row
-  div Characters
-    button(ng-click='addChara(question)').small-offset-1.button Ajouter un personnage
-    div(ng-repeat='(ckey,chara) in question.characters')
-      div {{chara.name}}
-      button(ng-click='question.characters.splice(ckey)').button.alert
-        i.fa.fa-trash
-      select(ng-model='question.characters[ckey]', ng-options='char as char.name for char in characters')
-        //option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
 
-      div(ng-if='chara.name').row
-        label.small-4.column Humeurs
-        //div {{charaIndex}} {{characters[charaIndex]}}
-        select(ng-model='question.characters[ckey].mood')
-          option(ng-repeat='(mood,url) in chara.moods ', value='{{mood}}') {{mood}}
+  div.small-12.column
+    h4 Questions
+    div(ng-repeat='question in story.questions')
+      div Question {{$index}} :
+        button(ng-click='story.questions.splice($index)').button.alert.small
+          i.fa.fa-trash
+      div Titre de la question :
+        input(type="text", ng-model='question.text')
+      div Choisir le background
+        select(ng-model='question.background')
+          option(ng-repeat='(background, url) in backgrounds', value='{{ url }}') {{background}}
+        //div(ngf-select="upload(question, $file)").button Selectionner un fichier
+        //div {{question.background}}
+      div Choisir les personnages
+        button(ng-click='addChara(question)').button Ajouter un personnage
+      div(ng-repeat='(ckey,chara) in question.characters')
+        span
+          span Character {{ckey}} :
+          strong {{chara.name}}
+          button(ng-click='question.characters.splice(ckey)').button.alert
+            i.fa.fa-trash
+        label Sélection
+          select(ng-model='question.characters[ckey]', ng-options='char as char.name for char in characters')
+            //option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
 
-        label.small-4.column Positionnement vertical
-          select(name="colums-v", ng-model= 'chara.columnX')
-            option(value="115.50 + 50") column 1
-            option(value="115.50 * 2 + 50") column 2
-            option(value="115.50 * 3 + 50") column 3
-            option(value="115.50 * 4 + 50") column 4
-            option(value="115.50 * 5 + 50") column 5
-            option(value="115.50 * 6 + 50") column 6
-            option(value="115.50 * 7 + 50") column 7
-            option(value="115.50 * 8 + 50") column 8
-        label.small-4.column Positionnement horizontale
-          select(name="colums-h", ng-model= 'chara.columnY')
-            option 1
-            option 2
-            option 3
-            option 4
-            option 5
-            option 6
-            option 7
-            option 8
+        div(ng-if='chara.name').row
+          label.small-4.column Humeurs
+          //div {{charaIndex}} {{characters[charaIndex]}}
+          select(ng-model='question.characters[ckey].mood')
+            option(ng-repeat='(mood,url) in chara.moods ', value='{{mood}}') {{mood}}
 
-  div(ng-repeat='(akey,answer) in question.answers').small-offset-1
-    input(ng-model='answer.id', placeholder='Identifiant')
-    input(ng-model='answer.text', placeholder='Text')
-    button(ng-click='question.answers.splice(akey)').button.alert
-      i.fa.fa-trash
-    div(ng-repeat='character in question.characters')
-      div {{character.name}}
-        select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
-    select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.character.moods')
-  button(ng-click='addAnswer(question)').button.success.small-offset-1
+          label.small-4.column Positionnement vertical
+            select(name="colums-v", ng-model= 'chara.columnX')
+              //option(value="115.50 + 50") column 1
+              //option(value="115.50 * 2 + 50") column 2
+              //option(value="115.50 * 3 + 50") column 3
+              //option(value="115.50 * 4 + 50") column 4
+              //option(value="115.50 * 5 + 50") column 5
+              //option(value="115.50 * 6 + 50") column 6
+              //option(value="115.50 * 7 + 50") column 7
+              //option(value="115.50 * 8 + 50") column 8
+              option(value="0") column 1
+              option(value="115.50") column 2
+              option(value="231") column 3
+              option(value="346.5") column 4
+              option(value="462") column 5
+              option(value="577.5") column 6
+              option(value="693") column 7
+              option(value="808.5") column 8
+          label.small-4.column Positionnement horizontale
+            select(name="colums-h", ng-model= 'chara.columnY')
+              option(value="0") column 1
+              option(value="115.50") column 2
+              option(value="231") column 3
+              option(value="346.5") column 4
+              option(value="462") column 5
+              option(value="577.5") column 6
+              option(value="693") column 7
+              option(value="808.5") column 8
+
+      div(ng-repeat='(akey,answer) in question.answers')
+        input(ng-model='answer.id', placeholder='Identifiant')
+        input(ng-model='answer.text', placeholder='Text')
+        button(ng-click='question.answers.splice(akey)').button.alert
+          i.fa.fa-trash
+        div(ng-repeat='character in question.characters')
+          div {{character.name}}
+            select(ng-model='question.answers[akey].characters[$index]', ng-options='key as key for (key,charMood) in character.moods')
+        select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.character.moods')
+      button(ng-click='addAnswer(question)').button.success.small-offset-1
+        i.fa.fa-plus
+        span Ajouter une réponse
+
+  button(ng-click='addQuestion()').button.success
     i.fa.fa-plus
-    span Ajouter une réponse
+    span Ajouter une question
 
-button(ng-click='addQuestion()').button.success
-  i.fa.fa-plus
-  span Ajouter une question
-
-button(ng-click='saveStory(story)').button Sauvegarder les changements
+  button(ng-click='saveStory(story)').button Sauvegarder les changements

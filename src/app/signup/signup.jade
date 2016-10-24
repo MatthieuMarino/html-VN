@@ -38,10 +38,10 @@ section.signup
         div.row.align-center.characterUser
           span.small-5.column.cont-user
             div(ng-click='setCharacter(manUser)').user.float-right
-              img(ng-src="{{ manUser.moods.NEUTRAL }}", width=80)
+              character(data='manUser', mood='"NEUTRAL"')
           span.small-5.column.cont-user
             div(ng-click='setCharacter(womanUser)').user.float-left
-              img(ng-src="{{ womanUser.moods.NEUTRAL }}", width=80)
+              character(data='womanUser', mood='"NEUTRAL"')
         div.row.align-center
           div.small-12.column
             a(ng-click='createUser(user)')

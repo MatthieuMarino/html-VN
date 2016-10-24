@@ -3,7 +3,7 @@ export class StoryController {
     'ngInject';
 
     $scope.storyId = $routeParams.storyId;
-    console.log('$scope.storyId', $scope.storyId);
+    // console.log('$scope.storyId', $scope.storyId);
 
     $scope.urlBack = './assets/images/background.svg';
 
@@ -14,9 +14,12 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
+          console.log('user',  $scope.user );
           StoriesFactory.getStory($scope.storyId).$loaded(function(data){
-            console.log('data', data);
+            // console.log('data', data);
             $scope.storyData = data;
+            $scope.characters = $scope.storyData.questions[$scope.index].characters;
+            // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
           });
           // console.log('$scope.storyData', $scope.storyData);
         });
@@ -33,9 +36,9 @@ export class StoryController {
       UserFactory.saveResult($scope.user.$id,$scope.storyId,$scope.index, {id:answer.id,text:answer.text});
       if($scope.index < $scope.storyData.questions.length -1){
         $scope.index++;
-        console.log('$scope.index', $scope.index);
+        // console.log('$scope.index', $scope.index);
       }else{
-        console.log('fini ', $scope.user.walkthroughs[$scope.storyId]);
+        // console.log('fini ', $scope.user.walkthroughs[$scope.storyId]);
         $location.search({
           storyId:$scope.storyId
         });
@@ -56,13 +59,13 @@ export class StoryController {
 
     $scope.stopSound = function(){
       //TODO stop sound
-      console.log('Stop sound');
+      // console.log('Stop sound');
       $scope.sound = !$scope.sound;
     };
 
     $scope.showMenu = function(){
       $scope.menu = !$scope.menu;
-    }
+    };
 
 
   }

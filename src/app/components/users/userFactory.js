@@ -58,11 +58,11 @@ export class UserFactory {
     // return this.$http.post(this.CM_DATABASE+'/signup', user)
     //TODO Known bug, when already logged, the user creation does not work as intended : can't disconnect the former user
     //thanks firebase for having outdated docs even though you wrote them two months ago
-    this.Firebase.auth().createUserWithEmailAndPassword(user.email, user.password).then(function (firebaseUser) {
-      // console.log('firebaseUser', firebaseUser);
-      delete user.password;
-      this.userRef.child(firebaseUser.uid).set(user).then(function(){
-        defer.resolve(firebaseUser);
+    this.Firebase.auth().signInAnonymously().then(function (firebaseUser) {
+      console.log('firebaseUser', firebaseUser);
+      this.userRef.child(firebaseUser.uid).set(user).then(function(ref){
+        console.log('ref', ref);
+        defer.resolve(ref);
       }.bind(this), function(error){
         console.log('error', error);
         defer.reject(error);

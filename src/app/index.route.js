@@ -46,6 +46,11 @@ export function routerConfig ($routeProvider) {
       controller: 'Resources',
       resolve:redirectToLogin
     })
+    .when('/characters', {
+      templateUrl: 'app/characters/characters.html',
+      controller: 'Characters',
+      resolve:redirectToLogin
+    })
     .when('/login', {
       templateUrl: 'app/login/login.html',
       controller: 'Login'

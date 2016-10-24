@@ -25,7 +25,7 @@
 .interface {
   height: 207px;
   max-width: 924px;
-  background-color: #0a0a0a;
+  background-color: white;
   border-radius: 15px;
   position: relative;
   z-index: 3;
@@ -37,9 +37,10 @@
 .cont-interface {
   position: relative;
   .userCharacter {
+    width: 160px;
     position: absolute;
     top: -315px;
-    left: 165px;
+    //left: 165px;
     z-index: 1;
   }
   button.button.alert {

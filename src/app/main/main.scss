@@ -1,15 +1,14 @@
 .main {
   background-color: $color-g56;
-  position: relative;
+  //position: relative;
   height: 100vh;
   .welcome {
     padding: 145px 0 0 0 ;
-    position: relative;
+    //position: relative;
 
     .cont-logo {
       position: relative;
       .logo {
-        height: 200px;
         position: absolute;
         top: -80px;
       }
@@ -17,9 +16,14 @@
   }
 }
 
-.cont-nav{
-  //position: fixed;
-}
+
+//.cont-title{
+//  position: relative;
+//  //text-align: center;
+//  .logo {
+//    position: absolute;
+//  }
+//}
 
 .cont-btn {
   margin: 40px auto;
