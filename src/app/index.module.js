@@ -21,6 +21,7 @@ import { StoriesFactory } from './components/stories/storiesFactory';
 import { ResourcesFactory } from './resources/resources.factory';
 import { CharactersController } from './characters/characters.controller';
 import { BackgroundsController } from './backgrounds/backgrounds.controller';
+import { FollowusController } from './followus/followus.controller';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
@@ -42,6 +43,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .controller('Resources', ResourcesController)
   .controller('Characters', CharactersController)
   .controller('Backgrounds', BackgroundsController)
+  .controller('Followus', FollowusController)
   .directive('navbar', NavbarDirective)
   .directive('character', CharacterDirective)
   .directive('interface', InterfaceDirective)

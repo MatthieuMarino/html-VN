@@ -37,11 +37,11 @@ section.signup
               input(ng-model='user.email', type="text", ng-required='true')
         div.row.align-center.characterUser
           span.small-5.column.cont-user
-            div(ng-click='setCharacter(manUser)').user.float-right
-              character(data='manUser', mood='"NEUTRAL"')
+            div(ng-if='manUser', ng-click='setCharacter(manUser)').user.float-right
+              character(data='manUser', mood='{{"NEUTRAL"}}')
           span.small-5.column.cont-user
-            div(ng-click='setCharacter(womanUser)').user.float-left
-              character(data='womanUser', mood='"NEUTRAL"')
+            div(ng-if='womanUser', ng-click='setCharacter(womanUser)').user.float-left
+              character(data='womanUser', mood='{{"NEUTRAL"}}')
         div.row.align-center
           div.small-12.column
             a(ng-click='createUser(user)')

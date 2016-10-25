@@ -21,6 +21,8 @@ export class SignupPageController {
           $location.search({});
           $location.path(target);
 
+        }else {
+          $location.path('/stories');
         }
       }
     });
@@ -28,19 +30,33 @@ export class SignupPageController {
 
     ResourcesFactory.getCharacters().$loaded(function(characters) {
       $scope.characters =  characters;
-      $scope.manUser = $scope.characters.$getRecord("user-male");
-      $scope.womanUser = $scope.characters.$getRecord("user-female");
-      $scope.user.gender = $scope.womanUser;
+      // console.log('characters', characters);
+      // console.log('$scope.characters["user-man"]', $scope.characters["user-man"]);
+      characters.map(function(chara){
+        // console.log('chara', chara);
+        // console.log('chara.name ', chara.name, ' == "user-man" ', chara.name == "user-man");
+        if(chara.name == 'user-man'){
+          $scope.manUser = chara;
+        }else if(chara.name == 'user-woman'){
+          $scope.womanUser = chara;
+        }
+      });
+
+      // console.log('$scope.manUser', $scope.manUser);
+      $scope.user.gender = {
+        name: $scope.womanUser.name,
+        moods: $scope.womanUser.moods
+      };
     });
 
     $scope.createUser = function (user) {
       $scope.error = '';
       if(user.email) {
-        UserFactory.createUser(user).then(function(res){
-          console.log('res', res);
-          $location.search(res);
+        UserFactory.createUser(user).then(function(uid){
+          // console.log('res', res);
+          // $location.search(res);
           $location.path('/stories');
-        },function(error){
+        }).catch(function(error){
           $scope.error = error;
         });
       }

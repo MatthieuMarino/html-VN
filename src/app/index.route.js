@@ -16,6 +16,10 @@ export function routerConfig ($routeProvider) {
       templateUrl: 'app/main/main.html',
       controller: 'MainController'
     })
+    .when('/followus', {
+      templateUrl: 'app/followus/followus.html',
+      controller: 'Followus'
+    })
     .when('/story/:storyId', {
       templateUrl: 'app/story/story.html',
       controller: 'Story',
@@ -31,18 +35,21 @@ export function routerConfig ($routeProvider) {
             $location.search({target:$location.path()});
             $location.path('/signup');
           }else{
+            console.log('connected');
             UserFactory.getCurrentUser().$loaded(function (userData) {
-              UserFactory.isAdmin(userData.$id).then(function (admin) {
-                  if(!admin){
-                    if(userData.gender.name == 'user-woman'){
-                      //TODO change to correct story
-                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
-                    }else if (userData.gender.name == 'user-man') {
-                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
-                    }else {
-                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
-                    }
+              console.log('userData', userData);
+              UserFactory.isAdmin(userData.$id).catch(function(error){
+                  // console.log('error', error);
+                if(error == 'not admin'){
+                  if(userData.gender.name == 'user-woman'){
+                    //TODO change to correct story
+                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                  }else if (userData.gender.name == 'user-man') {
+                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                  }else {
+                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
                   }
+                }
                 })
             });
           }

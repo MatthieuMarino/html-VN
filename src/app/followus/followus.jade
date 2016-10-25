@@ -1,27 +1,29 @@
 section.followus
-  img(src='./assets/images/femme_char.svg', width=290).female
-  img(src='./assets/images/homme_char.svg', width=300).male.float-right
+  img(ng-src='./assets/images/femme_char.svg', width=290).female
+  img(ng-src='./assets/images/homme_char.svg', width=300).male.float-right
   div.row.align-center.logo
     div.small-12.column.text-center
-      img(src='./assets/images/logoGarage56.svg', width=264.8)
+      img(ng-src='./assets/images/logoGarage56.svg', width=264.8)
 
   div.row.align-center
     div.small-12.column.text-center
       h1 Suivez-nous !
       h3
-        a(href="http://garage56.fr")
+        a(ng-href="http://garage56.fr")
           span.gray www.
           span garage56
           span.gray .fr
   div.row.text-center.align-middle.align-center
     div.small-2.column
-      a(href="https://www.facebook.com/Garage56-193888594360164/?hc_ref=PAGES_TIMELINE")
-        img(src='./assets/images/fb.svg', width=140)
+      a(ng-href="https://www.facebook.com/Garage56-193888594360164/?hc_ref=PAGES_TIMELINE")
+        img(ng-src='./assets/images/fb.svg', width=140)
     div.small-2.column
-      a(href="http://twitter.com/garage56_school")
-        img(src='./assets/images/twitter.svg', width=140)
+      a(ng-href="http://twitter.com/garage56_school")
+        img(ng-src='./assets/images/twitter.svg', width=140)
     div.small-2.column
-      a(href="http://www.linkedin.com/company/garage56")
-        img(src='./assets/images/linkedin.svg', width=140)
+      a(ng-href="http://www.linkedin.com/company/garage56")
+        img(ng-src='./assets/images/linkedin.svg', width=140)
+
+  button(ng-click='disconnect()').button Rejouer
 
 

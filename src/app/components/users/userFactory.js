@@ -61,8 +61,8 @@ export class UserFactory {
     this.Firebase.auth().signInAnonymously().then(function (firebaseUser) {
       console.log('firebaseUser', firebaseUser);
       this.userRef.child(firebaseUser.uid).set(user).then(function(ref){
-        console.log('ref', ref);
-        defer.resolve(ref);
+        // console.log('ref', ref);
+        defer.resolve(firebaseUser.uid);
       }.bind(this), function(error){
         console.log('error', error);
         defer.reject(error);
