@@ -1,5 +1,5 @@
-div.storyText {{data.text}}
-div.small-11.column
+div.storyText {{text}}
+div(ng-if='notChoosed').small-11.column
   ul
-    li(ng-repeat='answer in data.answers', ng-click='action(answer)')
+    li(ng-repeat='answer in data.answers', ng-click='choose(answer)')
       div {{answer.text}}
