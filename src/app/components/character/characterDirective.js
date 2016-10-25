@@ -6,7 +6,7 @@ export function CharacterDirective() {
     templateUrl: 'app/components/character/character.html',
     scope:{
       data: '=',
-      mood: '='
+      mood: '@'
     },
     controller: CharacterCtrl
   };
@@ -17,6 +17,7 @@ export function CharacterDirective() {
     'ngInject';
 
     console.log('scope data character user ', $scope.data);
+    // console.log('$scope.mood', $scope.mood);
 
   }
 
