@@ -7,7 +7,8 @@ div.small-12.column
 div.small-12.column
   form
     div.row
-      h2 Créer une nouvelle histoire
+      div.small-12.column
+        h2 Créer une nouvelle histoire
     div.row
       div.small-12.column
         label
@@ -24,31 +25,41 @@ div.small-12.column
   div.row
     div.small-12.column
       h4 Questions
-    div(ng-repeat='question in newStory.questions').small-12.column
-      div Texte :
-        input(type="text", ng-model='question.text')
       div.row
-        div.small-3.column Background
-          select(ng-model='question.background')
-            option(ng-repeat='(background,url) in backgrounds', value='{{url}}') {{background}}
+        div(ng-repeat='question in newStory.questions').small-6.column.cont-question
+          div Texte :
+            input(type="text", ng-model='question.text')
+          div.row
+            div.small-6.column Background :
+              select(ng-model='question.background')
+                option(ng-repeat='(background,url) in backgrounds', value='{{url}}') {{background}}
+          div.row
+            div.small-6.column
+              div Characters :
+              button(ng-click='addChara(question)').button.succes
+                i.fa.fa-plus
+                span Ajouter un personnage
+            div(ng-repeat='chara in question.characters').small-6.column
+              div {{chara.name}}
+              select(ng-model='chara')
+                option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
+          div(ng-repeat='answer in question.answers').small-12.column
+            form
+              div.row
+                div.small-4.column
+                  input(type="text", ng-model='answer.id', placeholder='Identifiant')
+                div.small-4.column
+                  input(type="text", ng-model='answer.text', placeholder='Text')
+                div.small-4.column
+                  input(type="text", ng-model='answer.result', placeholder='Result')
+          button(ng-click='addAnswer(question)').button.success
+            i.fa.fa-plus
+            span Ajouter une réponse
+
       div.row
         div.small-12.column
-          div Characters
-          button(ng-click='addChara(question)').button.alert Ajouter un personnage
-        div(ng-repeat='chara in question.characters').small-4.column
-          div {{chara.name}}
-          select(ng-model='chara')
-            option(ng-repeat='char in characters', value='{{char}}') {{char.name}}
-      div(ng-repeat='answer in question.answers').small-4.column
-        input(type="text", ng-model='answer.id', placeholder='Identifiant')
-        input(type="text", ng-model='answer.text', placeholder='Text')
-        input(type="text", ng-model='answer.result', placeholder='Result')
-      button(ng-click='addAnswer(question)').button.success
-        i.fa.fa-plus
-        span Ajouter une réponse
+          button(ng-click='addQuestion()').button.warning
+            i.fa.fa-plus
+            span Ajouter une question
 
-    button(ng-click='addQuestion()').button.success
-      i.fa.fa-plus
-      span Ajouter une question
-
-    button(ng-click='saveStory(newStory)').button Créer l'histoire
+          button(ng-click='saveStory(newStory)').button Créer l'histoire
