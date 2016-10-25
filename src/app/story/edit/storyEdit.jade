@@ -124,11 +124,11 @@ form.small-12.column
                 select(ng-model='question.answers[akey].characters[character.name]', ng-options='key as key for (key,charMood) in character.moods')
             div Humeur du personnage principal
               select(ng-model='questions.answers[akey].userMood', ng-options='key as key for (key,charMood) in user.gender.moods')
-        button(ng-click='addAnswer(question)').button.success.small-offset-1
+        button(ng-click='addAnswer(question)').button.warning.small-offset-1
           i.fa.fa-plus
           span Ajouter une réponse
 
-  button(ng-click='addQuestion()').button.success
+  button(ng-click='addQuestion()').button.warning
     i.fa.fa-plus
     span Ajouter une question
 

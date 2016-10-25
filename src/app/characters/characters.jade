@@ -19,4 +19,4 @@ div(ng-repeat='character in characters')
     div.small-3.column Upset
       img(ng-src="{{character.moods['UPSET']}}")
       div(ngf-select="uploadCharacter(character, 'UPSET',$file)").button Selectionner un fichier
-  button(ng-click='saveCharacter(character)').button.success Sauvegarder le personnage
+  button(ng-click='saveCharacter(character)').button.warning Sauvegarder le personnage
