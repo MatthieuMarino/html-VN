@@ -52,7 +52,8 @@ export class StoryEditController {
       }
       $scope.story.questions.push({
         answers: [],
-        characters: []
+        characters: [],
+        mainChar : {display : true}
       })
     };
 
