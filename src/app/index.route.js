@@ -24,7 +24,30 @@ export function routerConfig ($routeProvider) {
     .when('/stories', {
       templateUrl: 'app/story/list/stories.html',
       controller: 'Stories',
-      resolve:redirectToLogin
+      resolve:{
+        'authorize':function(AuthService,$location, UserFactory){
+          'ngInject';
+          if(!AuthService.isConnected()){
+            $location.search({target:$location.path()});
+            $location.path('/signup');
+          }else{
+            UserFactory.getCurrentUser().$loaded(function (userData) {
+              UserFactory.isAdmin(userData.$id).then(function (admin) {
+                  if(!admin){
+                    if(userData.gender.name == 'user-woman'){
+                      //TODO change to correct story
+                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    }else if (userData.gender.name == 'user-man') {
+                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    }else {
+                      $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    }
+                  }
+                })
+            });
+          }
+        }
+        }
     })
     .when('/create', {
       templateUrl: 'app/story/create/storyCreate.html',
