@@ -68,7 +68,7 @@ export class StoryEditController {
       if (!question.answers) {
         question.answers = [];
       }
-      question.answers.push({})
+      question.answers.push({id:question.answers.length})
     };
 
     $scope.saveStory = function (story) {
