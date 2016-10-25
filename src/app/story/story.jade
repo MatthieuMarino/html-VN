@@ -2,7 +2,7 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ st
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")
-      character(data='perso', mood='{{moods[perso.name]}}', style='right:{{perso.columnX}}px').character
+      character(data='perso', mood='{{moods[perso.name]}}', style='left:{{perso.columnX}}px; top:{{perso.columnY}}px').character
     div.row.animation.medium-collapse.large-collapse.cont-menu
       div.small-12.column.text-right
         span(ng-click='stopSound()')
