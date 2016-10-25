@@ -43,7 +43,7 @@ form.small-12.column
             option(ng-repeat='(mood,url) in chara.moods ', value='{{mood}}') {{mood}}
 
           label.small-4.column Positionnement vertical
-            select(name="colums-v", ng-model= 'chara.columnX')
+            select(name="columns-v", ng-model= 'chara.columnX')
               option(value="0") column 1
               option(value="115.50") column 2
               option(value="231") column 3
@@ -53,15 +53,15 @@ form.small-12.column
               option(value="693") column 7
               option(value="808.5") column 8
           label.small-4.column Positionnement horizontale
-            select(name="colums-h", ng-model= 'chara.columnY')
-              option(value="87.5") column 1
-              option(value="175") column 2
-              option(value="262.5") column 3
-              option(value="350") column 4
-              option(value="437.5") column 5
-              option(value="525") column 6
-              option(value="612.5") column 7
-              option(value="700") column 8
+            select(name="columns-h", ng-model= 'chara.columnY')
+              option(value="0") column 1
+              option(value="87.5") column 2
+              option(value="175") column 3
+              option(value="262.5") column 4
+              option(value="350") column 5
+              option(value="437.5") column 6
+              option(value="525") column 7
+              option(value="612.5") column 8
 
       div(ng-repeat='(akey,answer) in question.answers')
         input(ng-model='answer.id', placeholder='Identifiant')

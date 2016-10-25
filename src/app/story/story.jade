@@ -1,6 +1,6 @@
-div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").cont-stories.border
+div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").cont-stories
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
-  div.stories.border
+  div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")
       character(data='perso', mood='"NEUTRAL"', style='left:{{perso.columnX}}px; top:{{perso.columnY}}px').character
     div.row.animation.medium-collapse.large-collapse.cont-menu
