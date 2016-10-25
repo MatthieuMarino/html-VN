@@ -64,13 +64,13 @@ form.small-12.column
             label.small-8.column Positionnement horizontale
               select(name="colums-h", ng-model= 'chara.columnY')
                 option(value="0") column 1
-                option(value="115.50") column 2
-                option(value="231") column 3
-                option(value="346.5") column 4
-                option(value="462") column 5
-                option(value="577.5") column 6
-                option(value="693") column 7
-                option(value="808.5") column 8
+                  option(value="87.5") column 2
+                  option(value="175") column 3
+                  option(value="262.5") column 4 - milieu
+                  option(value="350") column 5
+                  option(value="437.5") column 6
+                  option(value="525") column 7
+                  option(value="612.5") column 8
       p.row
         div.small-4.column.small-offset-1
           strong.small-1 Speaker
@@ -100,13 +100,13 @@ form.small-12.column
           label.small-12.column Positionnement horizontale
             select(name="colums-h", ng-model= 'question.mainChar.columnY')
               option(value="0") column 1
-              option(value="115.50") column 2
-              option(value="231") column 3
-              option(value="346.5") column 4
-              option(value="462") column 5
-              option(value="577.5") column 6
-              option(value="693") column 7
-              option(value="808.5") column 8
+                option(value="87.5") column 2
+                option(value="175") column 3
+                option(value="262.5") column 4 - milieu
+                option(value="350") column 5
+                option(value="437.5") column 6
+                option(value="525") column 7
+                option(value="612.5") column 8
           div.small-12.column Humeur du personnage principal
             select(ng-model='question.mainChar.mood', ng-options='key as key for (key,charMood) in user.gender.moods')
       label.small-12

@@ -1,23 +1,24 @@
-div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").back-play
+div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").cont-stories
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
-  div.row.animation.medium-collapse.large-collapse.cont-menu
-    div.small-12.column.text-right
-      span(ng-click='stopSound()')
-        i(ng-if='!sound').fa.fa-volume-off
-        i(ng-if='sound').fa.fa-volume-up
-      div(ng-click='showMenu()').button.alert menu
-        p(ng-if='menu', ng-click='return()').button.secondary Retour en arrière
-        p(ng-if='menu', ng-click='quit()').button.secondary Retourner au menu
-    //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
-  div.cont-interface
-    character(data='user.gender', mood='{{userMood}}', style='left: 165px').userCharacter
+  div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")
-      character(data='perso', mood='{{moods[perso.name]}}', style='right:{{perso.columnX}}px').userCharacter
-    button.button.alert {{user.firstName}} {{user.lastName}}
-    div.row.interface
-      div.small-12.column
-        interface(data='storyData.questions[index]', action='chooseAnswer')
-    //div story {{story.questions[index]}}
-    //background
+      character(data='perso', mood='{{moods[perso.name]}}', style='left:{{perso.columnX}}px; top:{{perso.columnY}}px').character
+    div.row.animation.medium-collapse.large-collapse.cont-menu
+      div.small-12.column.text-right
+        span(ng-click='stopSound()')
+          i(ng-if='!sound').fa.fa-volume-off
+          i(ng-if='sound').fa.fa-volume-up
+        div(ng-click='showMenu()').button.alert menu
+          p(ng-if='menu', ng-click='return()').button.secondary Retour en arrière
+          p(ng-if='menu', ng-click='quit()').button.secondary Retourner au menu
+      //div(ng-repeat='character in storyData.questions[index].characters').row {{character.name}}
+    div.cont-interface
+      character(data='user.gender', mood='{{userMood}}', style='left: 165px').userCharacter
+      button.button.alert {{user.firstName}} {{user.lastName}}
+      div.row.interface
+        div.small-12.column
+          interface(data='storyData.questions[index]', action='chooseAnswer')
+      //div story {{story.questions[index]}}
+      //background
 
 
