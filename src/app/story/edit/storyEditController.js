@@ -62,7 +62,14 @@ export class StoryEditController {
     };
 
     $scope.deleteAnswer = function(question, answer){
-      delete question.answers[question.answers.indexOf(answer)];
+      // console.log('question', question);
+      // console.log('answer', answer);
+      if(question.answers.length <= 1){
+        question.answers = [];
+      }else{
+        question.answers.splice(question.answers.indexOf(answer), 1);
+      }
+
     };
 
     $scope.addAnswer = function (question) {

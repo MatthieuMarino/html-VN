@@ -72,8 +72,8 @@ export class StoryController {
           $scope.moods[chara.name] = chara.mood;
         });
       }
-      if ($scope.storyData.questions[$scope.index].userMood) {
-        $scope.userMood = $scope.storyData.questions[$scope.index].userMood;
+      if ($scope.storyData.questions[$scope.index].mainChar) {
+        $scope.userMood = $scope.storyData.questions[$scope.index].mainChar.mood;
       }else{
         $scope.userMood = 'NEUTRAL';
       }

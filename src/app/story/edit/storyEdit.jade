@@ -117,7 +117,7 @@ form.small-12.column
               input(ng-model='answer.id', placeholder='Identifiant')
               input(ng-model='answer.text', placeholder='Texte avant choix')
               input(ng-model='answer.result', placeholder='Texte après choix')
-              button(ng-click='question.answers.splice($index)').button.alert
+              button(ng-click='deleteAnswer(question, answer)').button.alert
                 i.fa.fa-trash
             div(ng-repeat='(chkey,character) in question.characters')
               div Humeur de {{character.name}}
