@@ -3,5 +3,5 @@ div(ng-if='notChoosed').small-11.column.answers
   ul
     li(ng-repeat='answer in data.answers', ng-click='choose(answer)') {{answer.text}}
   div.small-12.nextScene
-    button(ng-if='!data.answers || data.answers.length == 0', ng-click='choose()').button Suivant
+    button(ng-if='!data.answers || data.answers.length == 0', ng-click='choose()').button.secondary Suivant
 
