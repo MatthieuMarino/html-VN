@@ -38,16 +38,17 @@ export class StoryController {
       // console.log('answer', answer);
       if(answer){
         UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: answer.id, text: answer.text});
+        angular.forEach(answer.characters, function (chara, key) {
+          $scope.moods[key] = chara;
+          // console.log('chara.mood', chara);
+        });
+        if (answer.userMood) {
+          $scope.userMood = answer.userMood;
+        }
       }else{
         UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: 0, text: '-'});
       }
-      angular.forEach(answer.characters, function (chara, key) {
-        $scope.moods[key] = chara;
-        // console.log('chara.mood', chara);
-      });
-      if (answer.userMood) {
-        $scope.userMood = answer.userMood;
-      }
+
       $timeout(function () {
         if ($scope.index < $scope.storyData.questions.length - 1) {
           $scope.index++;

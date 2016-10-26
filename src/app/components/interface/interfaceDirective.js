@@ -11,7 +11,7 @@ export function InterfaceDirective() {
       $scope.choose = function(answer){
         $scope.notChoosed = false;
         $scope.action(answer);
-        if(answer.result){
+        if(answer && answer.result){
           $scope.text = answer.result;
         }
       };
