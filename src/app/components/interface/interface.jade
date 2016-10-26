@@ -1,5 +1,6 @@
 div.storyText {{text}}
-div(ng-if='notChoosed').small-11.column
+div(ng-if='notChoosed').small-11.column.answers
   ul
-    li(ng-repeat='answer in data.answers', ng-click='choose(answer)')
-      div {{answer.text}}
+    li(ng-repeat='answer in data.answers', ng-click='choose(answer)') {{answer.text}}
+  button(ng-if='data.answers.length == 0', ng-click='choose()').button.nextScene Suivant
+

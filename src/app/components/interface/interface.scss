@@ -5,14 +5,21 @@
   font-weight: 200;
   font-size: 1.5rem;
 
+}
+.answers {
   ul {
     padding-left: 10px;
     margin: 0;
-    li div {
-      font-size: 1.3rem;
+    li {
+      font-size: 1.2rem;
     }
-    li div:hover {
-      color: darkgrey;
+    li:hover {
+      background-color: darkgrey;
     }
   }
+}
+
+
+.nextScene {
+  text-align: right;
 }

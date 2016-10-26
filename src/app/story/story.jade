@@ -5,9 +5,9 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ st
       character(data='perso', mood='{{moods[perso.name]}}', style='left:{{perso.columnX}}px; top:{{perso.columnY}}px').character
     div.row.animation.medium-collapse.large-collapse.cont-menu
       div.small-12.column.text-right
-        span(ng-click='stopSound()')
-          i(ng-if='!sound').fa.fa-volume-off
-          i(ng-if='sound').fa.fa-volume-up
+        //span(ng-click='stopSound()')
+        //  i(ng-if='!sound').fa.fa-volume-off
+        //  i(ng-if='sound').fa.fa-volume-up
         div(ng-click='showMenu()').button.alert menu
           p(ng-if='menu', ng-click='return()').button.secondary Retour en arrière
           p(ng-if='menu', ng-click='quit()').button.secondary Retourner au menu

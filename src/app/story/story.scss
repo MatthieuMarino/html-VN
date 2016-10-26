@@ -8,7 +8,7 @@
   padding: 50px;
   .character {
     position: absolute;
-    width: 160px;
+    width: 262px;
     z-index: 1;
   }
 }
@@ -19,6 +19,7 @@
     width: 170px;
     font-family: Nevo;
     font-weight: 600;
+    font-size: larger;
   }
 }
 
@@ -49,7 +50,7 @@
   button.button.alert {
     position: absolute;
     top: -17px;
-    left: 100px;
+    left: 50px;
     width: 185px;
     border-radius: 10px;
     z-index: 4;

@@ -19,7 +19,7 @@ export function InterfaceDirective() {
       $scope.$watch(function(){
         return $scope.data;
       }, function(newVal){
-        console.log('newVal', newVal);
+        // console.log('newVal', newVal);
         if(newVal){
           $scope.text = newVal.text;
           $scope.notChoosed = true;

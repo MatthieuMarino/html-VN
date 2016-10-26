@@ -35,11 +35,15 @@ export class StoryController {
     $scope.menu = false;
 
     $scope.chooseAnswer = function (answer) {
-      console.log('answer', answer);
-      UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: answer.id, text: answer.text});
+      // console.log('answer', answer);
+      if(answer){
+        UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: answer.id, text: answer.text});
+      }else{
+        UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: 0, text: '-'});
+      }
       angular.forEach(answer.characters, function (chara, key) {
         $scope.moods[key] = chara;
-        console.log('chara.mood', chara);
+        // console.log('chara.mood', chara);
       });
       if (answer.userMood) {
         $scope.userMood = answer.userMood;

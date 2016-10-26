@@ -23,7 +23,9 @@ section.followus
     div.small-2.column
       a(ng-href="http://www.linkedin.com/company/garage56")
         img(ng-src='./assets/images/linkedin.svg', width=140)
-
-  button(ng-click='disconnect()').button Rejouer
+div
+  //button(ng-click='disconnect()').button Rejouer
+  a(ng-href='#/').button Retour au menu
+  a(ng-href='#/stories', ng-if='unlock').button Menu (admin)
 
 

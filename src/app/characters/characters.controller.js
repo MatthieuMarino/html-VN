@@ -27,7 +27,7 @@ export class CharactersController {
     });
 
     $scope.uploadCharacter = function(character, mood, file){
-      console.log('character', character);
+      // console.log('character', character);
       // console.log('$scope.characters[character]', $scope.characters[character]);
       FileUploader.uploadFile(file,"characters").then(function(url){
         character.moods[mood] = url;
