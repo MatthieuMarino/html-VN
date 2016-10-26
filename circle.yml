@@ -13,5 +13,7 @@ deployment:
   production:
     branch: master
     commands:
+      - mkdir dist/fonts/
+      - cp -r bower_components/font-awesome/fonts/* dist/fonts/
       - npm i -g firebase-tools
       - firebase deploy --token $FIREBASE_DEPLOY_TOKEN --non-interactive
