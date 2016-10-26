@@ -43,7 +43,7 @@ form.small-12.column
               select(ng-model='question.characters[ckey].mood')
                 option(ng-repeat='(mood,url) in chara.moods ', value='{{mood}}') {{mood}}
 
-            label.small-8.column Positionnement vertical
+            label.small-8.column Positionnement horizontal
               select(name="colums-v", ng-model= 'chara.columnX')
                 //option(value="115.50 + 50") column 1
                 //option(value="115.50 * 2 + 50") column 2
@@ -61,7 +61,7 @@ form.small-12.column
                 //option(value="577.5") column 6
                 //option(value="693") column 7
                 //option(value="808.5") column 8
-            label.small-8.column Positionnement horizontale
+            label.small-8.column Positionnement vertical
               select(name="colums-h", ng-model= 'chara.columnY')
                 option(value="0") column 1
                   option(value="87.5") column 2
@@ -79,7 +79,7 @@ form.small-12.column
           strong.small-12 Personnage principal
           div.small-12.column Afficher ?
             input(type='checkbox', ng-model='question.mainChar.display')
-          label.small-12.column Positionnement vertical
+          label.small-12.column Positionnement horizontal
             select(name="colums-v", ng-model= 'question.mainChar.columnX')
               //option(value="115.50 + 50") column 1
               //option(value="115.50 * 2 + 50") column 2
@@ -97,7 +97,7 @@ form.small-12.column
               //option(value="577.5") column 6
               //option(value="693") column 7
               //option(value="808.5") column 8
-          label.small-12.column Positionnement horizontale
+          label.small-12.column Positionnement vertical
             select(name="colums-h", ng-model= 'question.mainChar.columnY')
               option(value="0") column 1
                 option(value="87.5") column 2
