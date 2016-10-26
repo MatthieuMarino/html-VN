@@ -2,7 +2,7 @@ a(ng-href='#/stories').button Menu
 
 h3 Updater un personnage
 div(ng-repeat='character in characters')
-  input(ng-model='character.name', placeholder='nom')
+  input(ng-model='character.title', placeholder='nom')
   span
     button(ng-click='delete(character)').button.alert
       i.fa.fa-trash
