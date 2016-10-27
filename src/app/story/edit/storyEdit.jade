@@ -75,40 +75,12 @@ form.small-12.column
         div.small-4.column.small-offset-1
           strong.small-1 Speaker
           select(ng-model='question.speaker', ng-options='char.title as char.name for char in question.characters').small-3
-        div.small-3.column
-          strong.small-12 Personnage principal
-          div.small-12.column Afficher ?
-            input(type='checkbox', ng-model='question.mainChar.display')
-          label.small-12.column Positionnement vertical
-            select(name="colums-v", ng-model= 'question.mainChar.columnY')
-              //option(value="115.50 + 50") column 1
-              //option(value="115.50 * 2 + 50") column 2
-              //option(value="115.50 * 3 + 50") column 3
-              //option(value="115.50 * 4 + 50") column 4
-              //option(value="115.50 * 5 + 50") column 5
-              //option(value="115.50 * 6 + 50") column 6
-              //option(value="115.50 * 7 + 50") column 7
-              //option(value="115.50 * 8 + 50") column 8
-              option(value="0") column 1
-              option(value="115.50") column 2
-              option(value="231") column 3
-              option(value="346.5") column 4
-              //option(value="462") column 5
-              //option(value="577.5") column 6
-              //option(value="693") column 7
-              //option(value="808.5") column 8
-          label.small-12.column Positionnement horizontal
-            select(name="colums-h", ng-model= 'question.mainChar.columnX')
-              option(value="0") column 1
-                option(value="87.5") column 2
-                option(value="175") column 3
-                option(value="262.5") column 4 - milieu
-                option(value="350") column 5
-                option(value="437.5") column 6
-                option(value="525") column 7
-                option(value="612.5") column 8
-          div.small-12.column Humeur du personnage principal
-            select(ng-model='question.mainChar.mood', ng-options='key as key for (key,charMood) in user.gender.moods')
+          div
+            strong.small-12 Personnage principal
+            div.small-12.column Afficher ?
+              input(type='checkbox', ng-model='question.mainChar.display')
+            div.small-12.column Humeur du personnage principal
+              select(ng-model='question.mainChar.mood', ng-options='key as key for (key,charMood) in user.gender.moods')
       label.small-12
         strong Réponses
         div.row
