@@ -61,7 +61,7 @@ export class StoryController {
           });
           $location.path('/result');
         }
-      }, 3000);
+      }, answer?3000:0);
 
 
     };
