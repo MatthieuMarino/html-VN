@@ -17,7 +17,7 @@ div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ st
       button.button.alert {{storyData.questions[index].speaker}}
       div.row.interface
         div.small-12.column
-          interface(data='storyData.questions[index]', action='chooseAnswer')
+          interface(data='storyData.questions[index]', action='chooseAnswer', name='{{user.lastName}}')
       //div story {{story.questions[index]}}
       //background
 

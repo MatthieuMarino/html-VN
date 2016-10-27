@@ -1,4 +1,4 @@
-div.storyText {{text}}
+div.storyText {{text.replace('$nom$',name)}}
 div(ng-if='notChoosed').small-11.column.answers
   ul
     li(ng-repeat='answer in data.answers', ng-click='choose(answer)') {{answer.text}}

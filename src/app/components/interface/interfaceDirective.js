@@ -28,7 +28,8 @@ export function InterfaceDirective() {
     },
     scope:{
       data: '=',
-      action: '='
+      action: '=',
+      name:'@'
     }
   };
 
