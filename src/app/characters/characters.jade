@@ -23,7 +23,7 @@ div(ng-repeat='character in characters')
       img(ng-src="{{character.moods[key]}}")
       div {{key}}
       div(ngf-select="uploadCharacter(character, key,$file)").button Selectionner un fichier
-      button(ng-click='deleteMood(character,key)').button.alert
+      button(ng-click='deleteMood(character.name,key)').button.alert
         i.fa.fa-trash
   input(ng-model='newMood[character.name]', placeholder='nouvelle humeur')
   button(ng-click='addMood($index, newMood[character.name])').button Nouvelle humeur

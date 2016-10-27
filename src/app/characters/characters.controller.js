@@ -45,14 +45,16 @@ export class CharactersController {
     };
 
     $scope.addMood = function(character, newMood){
-      console.log('character', character);
-      console.log('newMood', newMood);
+      // console.log('character', character);
+      // console.log('newMood', newMood);
       console.log('$scope.characters', $scope.characters);
       $scope.characters[character].moods[newMood] = '';
     };
 
     $scope.deleteMood = function(character,mood){
-      delete $scope.characters[character].moods[mood];
+      console.log('character', character);
+      console.log('newMood', mood);
+      delete $scope.characters.$getRecord(character).moods[mood];
     };
 
   }
