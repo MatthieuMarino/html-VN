@@ -13,12 +13,13 @@ export function CharacterDirective() {
 
   return directive;
 
-  function CharacterCtrl($scope) {
+  function CharacterCtrl() {
     'ngInject';
+
 
     //if the console.log is commented => annotation error
     // console.log('scope data character user ', $scope.data);
-    console.log('$scope.mood', $scope.mood);
+    // console.log('mood', $scope.mood);
     // console.log('$scope.data.moods[$scope.mood]', $scope.data.moods[$scope.mood]);
 
   }

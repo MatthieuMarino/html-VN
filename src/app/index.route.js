@@ -35,9 +35,9 @@ export function routerConfig ($routeProvider) {
             $location.search({target:$location.path()});
             $location.path('/signup');
           }else{
-            console.log('connected');
+            // console.log('connected');
             UserFactory.getCurrentUser().$loaded(function (userData) {
-              console.log('userData', userData);
+              // console.log('userData', userData);
               UserFactory.isAdmin(userData.$id).catch(function(error){
                   // console.log('error', error);
                 if(error == 'not admin'){

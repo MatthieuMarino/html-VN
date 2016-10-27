@@ -14,7 +14,7 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          console.log('user', $scope.user);
+          // console.log('user', $scope.user);
           StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
             // console.log('data', data);
             $scope.storyData = data;
