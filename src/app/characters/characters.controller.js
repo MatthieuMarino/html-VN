@@ -3,6 +3,7 @@ export class CharactersController {
     'ngInject';
 
     $scope.character = {moods: {}};
+    $scope.newMood = {};
 
     $scope.$watch(function () {
       return UserFactory.isConnected()
@@ -41,6 +42,17 @@ export class CharactersController {
 
     $scope.delete = function(character){
       $scope.characters.$remove(character);
+    };
+
+    $scope.addMood = function(character, newMood){
+      console.log('character', character);
+      console.log('newMood', newMood);
+      console.log('$scope.characters', $scope.characters);
+      $scope.characters[character].moods[newMood] = '';
+    };
+
+    $scope.deleteMood = function(character,mood){
+      delete $scope.characters[character].moods[mood];
     };
 
   }

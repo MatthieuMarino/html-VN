@@ -7,16 +7,24 @@ div(ng-repeat='character in characters')
     button(ng-click='delete(character)').button.alert
       i.fa.fa-trash
   div.row
-    div.small-3.column Happy
-      img(ng-src="{{character.moods['HAPPY']}}")
-      div(ngf-select="uploadCharacter(character, 'HAPPY',$file)").button Selectionner un fichier
-    div.small-3.column Neutral
-      img(ng-src="{{character.moods['NEUTRAL']}}")
-      div(ngf-select="uploadCharacter(character, 'NEUTRAL',$file)").button Selectionner un fichier
-    div.small-3.column Smiling
-      img(ng-src="{{character.moods['SMILING']}}")
-      div(ngf-select="uploadCharacter(character, 'SMILING',$file)").button Selectionner un fichier
-    div.small-3.column Upset
-      img(ng-src="{{character.moods['UPSET']}}")
-      div(ngf-select="uploadCharacter(character, 'UPSET',$file)").button Selectionner un fichier
+    //div.small-3.column Happy
+    //  img(ng-src="{{character.moods['HAPPY']}}")
+    //  div(ngf-select="uploadCharacter(character, 'HAPPY',$file)").button Selectionner un fichier
+    //div.small-3.column Neutral
+    //  img(ng-src="{{character.moods['NEUTRAL']}}")
+    //  div(ngf-select="uploadCharacter(character, 'NEUTRAL',$file)").button Selectionner un fichier
+    //div.small-3.column Smiling
+    //  img(ng-src="{{character.moods['SMILING']}}")
+    //  div(ngf-select="uploadCharacter(character, 'SMILING',$file)").button Selectionner un fichier
+    //div.small-3.column Upset
+    //  img(ng-src="{{character.moods['UPSET']}}")
+    //  div(ngf-select="uploadCharacter(character, 'UPSET',$file)").button Selectionner un fichier
+    div(ng-repeat='(key,mood) in character.moods').small-3.column
+      img(ng-src="{{character.moods[key]}}")
+      div {{key}}
+      div(ngf-select="uploadCharacter(character, key,$file)").button Selectionner un fichier
+      button(ng-click='deleteMood(character,key)').button.alert
+        i.fa.fa-trash
+  input(ng-model='newMood[character.name]', placeholder='nouvelle humeur')
+  button(ng-click='addMood($index, newMood[character.name])').button Nouvelle humeur
   button(ng-click='saveCharacter(character)').button.warning Sauvegarder le personnage
