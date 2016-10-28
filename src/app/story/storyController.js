@@ -18,18 +18,18 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          MetaStoriesFactory.getMetaStory($scope.storyId).$loaded(function(metaStoryData){
+          MetaStoriesFactory.getMetaStory($scope.storyId).$loaded(function (metaStoryData) {
             metaStory = metaStoryData;
             // console.log('metaStory', metaStory);
-            if(metaStory.title){
+            if (metaStory.title) {
               // console.log('meta');
               useMeta = true;
               // console.log('metaStory', metaStory);
               let run = true;
-              while(run && metaIndex < metaStory.stories.length){
-                if(!metaStory.stories[metaIndex]){
+              while (run && metaIndex < metaStory.stories.length) {
+                if (!metaStory.stories[metaIndex]) {
                   metaIndex++;
-                }else{
+                } else {
                   run = false;
                 }
               }
@@ -44,7 +44,7 @@ export class StoryController {
                 // console.log('$scope.moods', $scope.moods);
                 // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
               });
-            }else{
+            } else {
               // console.log('pas meta');
               useMeta = false;
               StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
@@ -81,8 +81,13 @@ export class StoryController {
 
     $scope.chooseAnswer = function (answer) {
       // console.log('answer', answer);
-      if(answer){
-        UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: answer.id, text: answer.text});
+      if (answer) {
+        UserFactory.saveResult(
+          $scope.user.$id,
+          $scope.storyId,
+          metaIndex ? metaIndex + '-' + $scope.index : $scope.index,
+          {id: answer.id, text: answer.text}
+        );
         angular.forEach(answer.characters, function (chara, key) {
           $scope.moods[key] = chara;
           // console.log('chara.mood', chara);
@@ -90,8 +95,13 @@ export class StoryController {
         if (answer.userMood) {
           $scope.userMood = answer.userMood;
         }
-      }else{
-        UserFactory.saveResult($scope.user.$id, $scope.storyId, $scope.index, {id: 0, text: '-'});
+      } else {
+        UserFactory.saveResult(
+          $scope.user.$id,
+          $scope.storyId,
+          metaIndex ? metaIndex + '-' + $scope.index : $scope.index,
+          {id: 0, text: '-'}
+        );
       }
 
       $timeout(function () {
@@ -104,13 +114,13 @@ export class StoryController {
           console.log('metaIndex', metaIndex);
           console.log('metaDone', metaDone, '/', metaStory.stories.length);
           // console.log('metaStory.stories[metaIndex+1].id', metaStory.stories[metaIndex+1].id);
-          if(useMeta && metaDone < metaStory.stories.length){
+          if (useMeta && metaDone < metaStory.stories.length) {
             metaIndex++;
             let run = true;
-            while(run && metaIndex < metaStory.stories.length){
-              if(!metaStory.stories[metaIndex]){
+            while (run && metaIndex < metaStory.stories.length) {
+              if (!metaStory.stories[metaIndex]) {
                 metaIndex++;
-              }else{
+              } else {
                 run = false;
               }
             }
@@ -122,15 +132,15 @@ export class StoryController {
               $scope.index = 0;
               $scope.init();
             })
-          }else{
+          } else {
             console.log('finished');
             $location.search({
-              storyId:$scope.storyId
+              storyId: $scope.storyId
             });
             $location.path('/result');
           }
         }
-      }, answer?3000:0);
+      }, answer ? 3000 : 0);
 
 
     };
@@ -143,7 +153,7 @@ export class StoryController {
       }
       if ($scope.storyData.questions[$scope.index].mainChar) {
         $scope.userMood = $scope.storyData.questions[$scope.index].mainChar.mood;
-      }else{
+      } else {
         $scope.userMood = 'NEUTRAL';
       }
     };
