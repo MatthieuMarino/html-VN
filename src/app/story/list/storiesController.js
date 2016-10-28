@@ -1,5 +1,5 @@
 export class StoriesController {
-  constructor($scope, $location, UserFactory, StoriesFactory) {
+  constructor($scope, $location, UserFactory, StoriesFactory, MetaStoriesFactory) {
     'ngInject';
 
     $scope.$watch(function () {
@@ -10,6 +10,7 @@ export class StoriesController {
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
           $scope.stories = StoriesFactory.getStories();
+          $scope.metaStories = MetaStoriesFactory.getMetaStories();
           UserFactory.isAdmin($scope.user.$id).then(function(admin){
             if(admin){
               $scope.unlock = true;
@@ -24,6 +25,10 @@ export class StoriesController {
 
     $scope.deleteStory = function(story){
       StoriesFactory.deleteStory(story.$id);
+    };
+
+    $scope.deleteMetaStory = function(story){
+      MetaStoriesFactory.deleteMetaStory(story);
     };
 
     $scope.switchGender = function(){

@@ -22,6 +22,8 @@ import { ResourcesFactory } from './resources/resources.factory';
 import { CharactersController } from './characters/characters.controller';
 import { BackgroundsController } from './backgrounds/backgrounds.controller';
 import { FollowusController } from './followus/followus.controller';
+import { MetaStoriesFactory } from './components/metaStories/metaStoriesFactory';
+import { MetaStoriesController } from './metaStories/metaStories.controller';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
@@ -32,10 +34,12 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .service('StoriesFactory', StoriesFactory)
   .service('FileUploader', FileUploader)
   .service('ResourcesFactory', ResourcesFactory)
+  .service('MetaStoriesFactory', MetaStoriesFactory)
   .controller('MainController', MainController)
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)
   .controller('Story', StoryController)
+  .controller('MetaStories', MetaStoriesController)
   .controller('StoryCreate', StoryCreateController)
   .controller('Result', ResultController)
   .controller('Stories', StoriesController)

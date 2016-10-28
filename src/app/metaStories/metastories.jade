@@ -1,0 +1,31 @@
+a(ng-href='#/stories').button Menu
+h4 Assemble stories
+
+div.small-4.column
+  input(ng-model='newName', placeholder='Nom')
+  button(ng-click='createMetaStory(newName)').button Créer un nouveau walkthrough
+
+
+
+div(ng-repeat='metaStory in metaStories').small-12
+  div - {{metaStory.title}} :
+    span(ng-show='!showMTS[metaStory.$id]')  Afficher ?
+    span(ng-show='showMTS[metaStory.$id]')  Masquer ?
+    input(type='checkbox', ng-model='showMTS[metaStory.$id]')
+  div(ng-show='showMTS[metaStory.$id]')
+    div(ng-repeat='story in metaStory.stories')
+      div.small-offset-1  {{$index}} -  {{story.title}}
+      select(ng-model='metaStory.stories[$index]', ng-options='newstory as newstory.title for newstory in stories').small-3.small-offset-1
+    button(ng-click='addStory(metaStory)').button.small-offset-1 Ajouter une histoire
+    button(ng-click='saveMetaStory(metaStory)').button.success Sauvegarder {{metaStory.title}}
+
+    //div(ng-repeat='question in metaStory.story.questions')
+    //  div {{question.text|limitTo:100}}
+    //  div(ng-repeat='answer in question.answers')
+    //    div {{answer.id}}
+    //    select(ng-model='answer.branch', ng-options='story as story.title for story in stories').small-3
+
+
+    //div(ng-repeat='story in metaStory.stories')
+    //  div {{story.title}}
+

@@ -43,11 +43,11 @@ export function routerConfig ($routeProvider) {
                 if(error == 'not admin'){
                   if(userData.gender.name == 'user-woman'){
                     //TODO change to correct story
-                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    $location.path('/story/-KV9YOe45n7ns7l1QyL7');
                   }else if (userData.gender.name == 'user-man') {
-                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    $location.path('/story/-KV9YOe45n7ns7l1QyL7');
                   }else {
-                    $location.path('/story/-KUS16u4EklWLCmJ1OYe');
+                    $location.path('/story/-KV9YOe45n7ns7l1QyL7');
                   }
                 }
                 })
@@ -64,6 +64,11 @@ export function routerConfig ($routeProvider) {
     .when('/edit/:storyId', {
       templateUrl: 'app/story/edit/storyEdit.html',
       controller: 'StoryEdit',
+      resolve:redirectToLogin
+    })
+    .when('/metaStories/', {
+      templateUrl: 'app/metaStories/metaStories.html',
+      controller: 'MetaStories',
       resolve:redirectToLogin
     })
     .when('/result', {

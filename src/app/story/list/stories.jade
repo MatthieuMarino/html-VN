@@ -1,15 +1,26 @@
 h3 Liste des histoires
 
-
+h4 Histoires
 div(ng-repeat='story in stories').row
   div.small-3 {{story.title}}
   a(ng-href='#/story/{{story.$id}}').button.warning.small-1 Lancer
   a(ng-if='unlock', ng-href='#/edit/{{story.$id}}').button.secondary.small-1 Modifier
   button(ng-if='unlock', ng-click='deleteStory(story)').button.alert.small-1
     i.fa.fa-trash
+
+h4 Walkthroughs
+div(ng-repeat='story in metaStories').row
+  div.small-3 {{story.title}}
+  a(ng-href='#/story/{{story.$id}}').button.warning.small-1 Lancer
+  //a(ng-if='unlock', ng-href='#/edit/{{story.id}}').button.secondary.small-1 Modifier
+  button(ng-if='unlock', ng-click='deleteMetaStory(story)').button.alert.small-1
+    i.fa.fa-trash
+
 div(ng-if='unlock')
   a(ng-href='#/characters').button Editer les personnages
   a(ng-href='#/backgrounds').button Editer les backgrounds
   a(ng-href='#/create').button Créer une histoire
   a(ng-href='#/resources').button Créer des ressources
   button(ng-click='switchGender()').button Changer de genre (actuel : {{user.gender.name}})
+div(ng-if='unlock')
+  a(ng-href='#/metaStories').button.success Assembler une histoire

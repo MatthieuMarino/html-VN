@@ -1,8 +1,12 @@
 export class StoryController {
-  constructor($scope, $routeParams, $timeout, $location, UserFactory, StoriesFactory) {
+  constructor($scope, $routeParams, $timeout, $location, UserFactory, StoriesFactory, MetaStoriesFactory) {
     'ngInject';
 
     $scope.storyId = $routeParams.storyId;
+    let metaIndex = 0;
+    let metaDone = 0;
+    let useMeta = false;
+    let metaStory = null;
     // console.log('$scope.storyId', $scope.storyId);
 
     $scope.urlBack = './assets/images/background.svg';
@@ -14,16 +18,57 @@ export class StoryController {
         // UserFactory.initUser();
         UserFactory.getCurrentUser().$loaded(function (userData) {
           $scope.user = userData;
-          // console.log('user', $scope.user);
-          StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
-            // console.log('data', data);
-            $scope.storyData = data;
-            // $scope.characters = $scope.storyData.questions[$scope.index].characters;
-            $scope.moods = {};
-            $scope.init();
-            // console.log('$scope.moods', $scope.moods);
-            // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
+          MetaStoriesFactory.getMetaStory($scope.storyId).$loaded(function(metaStoryData){
+            metaStory = metaStoryData;
+            // console.log('metaStory', metaStory);
+            if(metaStory.title){
+              // console.log('meta');
+              useMeta = true;
+              // console.log('metaStory', metaStory);
+              let run = true;
+              while(run && metaIndex < metaStory.stories.length){
+                if(!metaStory.stories[metaIndex]){
+                  metaIndex++;
+                }else{
+                  run = false;
+                }
+              }
+              // console.log('metaIndex', metaIndex);
+              StoriesFactory.getStory(metaStory.stories[metaIndex].id).$loaded(function (data) {
+                // console.log('data', data);
+                metaDone++;
+                $scope.storyData = data;
+                // $scope.characters = $scope.storyData.questions[$scope.index].characters;
+                $scope.moods = {};
+                $scope.init();
+                // console.log('$scope.moods', $scope.moods);
+                // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
+              });
+            }else{
+              // console.log('pas meta');
+              useMeta = false;
+              StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
+                // console.log('data', data);
+                // metaDone++;
+                $scope.storyData = data;
+                // $scope.characters = $scope.storyData.questions[$scope.index].characters;
+                $scope.moods = {};
+                $scope.init();
+                // console.log('$scope.moods', $scope.moods);
+                // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
+              });
+            }
           });
+          // console.log('user', $scope.user);
+          // StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
+          //   // console.log('data', data);
+          //   $scope.storyData = data;
+          //   // $scope.characters = $scope.storyData.questions[$scope.index].characters;
+          //   $scope.moods = {};
+          //   $scope.init();
+          //   // console.log('$scope.moods', $scope.moods);
+          //   // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
+          // });
           // console.log('$scope.storyData', $scope.storyData);
         });
 
@@ -56,10 +101,34 @@ export class StoryController {
           // console.log('$scope.index', $scope.index);
         } else {
           // console.log('fini ', $scope.user.walkthroughs[$scope.storyId]);
-          $location.search({
-            storyId: $scope.storyId
-          });
-          $location.path('/result');
+          console.log('metaIndex', metaIndex);
+          console.log('metaDone', metaDone, '/', metaStory.stories.length);
+          // console.log('metaStory.stories[metaIndex+1].id', metaStory.stories[metaIndex+1].id);
+          if(useMeta && metaDone < metaStory.stories.length){
+            metaIndex++;
+            let run = true;
+            while(run && metaIndex < metaStory.stories.length){
+              if(!metaStory.stories[metaIndex]){
+                metaIndex++;
+              }else{
+                run = false;
+              }
+            }
+            StoriesFactory.getStory(metaStory.stories[metaIndex].id).$loaded(function (data) {
+              // console.log('data', data);
+              metaDone++;
+              $scope.storyData = data;
+              $scope.moods = {};
+              $scope.index = 0;
+              $scope.init();
+            })
+          }else{
+            console.log('finished');
+            $location.search({
+              storyId:$scope.storyId
+            });
+            $location.path('/result');
+          }
         }
       }, answer?3000:0);
 
