@@ -1,8 +1,13 @@
 export class MetaStoriesController {
-  constructor($scope, $location, UserFactory, StoriesFactory, MetaStoriesFactory) {
+  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory, MetaStoriesFactory) {
     'ngInject';
 
     // console.log('here');
+    console.log('$routeParams.metaId', $routeParams.metaId);
+    if($routeParams.metaId){
+      $scope.showMTS = [];
+      $scope.showMTS[$routeParams.metaId] = true;
+    }
 
     $scope.$watch(function () {
       return UserFactory.isConnected()
