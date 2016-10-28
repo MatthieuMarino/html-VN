@@ -105,7 +105,13 @@ export class StoryController {
       }
 
       $timeout(function () {
-        if ($scope.index < $scope.storyData.questions.length - 1) {
+        if(answer.end){
+          $location.search({
+            storyId: $scope.storyId
+          });
+          $location.path('/result');
+        }
+        else if ($scope.index < $scope.storyData.questions.length - 1) {
           $scope.index++;
           $scope.init();
           // console.log('$scope.index', $scope.index);
@@ -133,7 +139,7 @@ export class StoryController {
               $scope.init();
             })
           } else {
-            console.log('finished');
+            // console.log('finished');
             $location.search({
               storyId: $scope.storyId
             });
