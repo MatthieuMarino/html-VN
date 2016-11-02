@@ -7,7 +7,9 @@ section.score
     img(src='./assets/images/f.svg', width=120).perso-female
     img(src='./assets/images/h.svg', width=120).perso-male
     div.small-11.column.array
-      div Vous êtes un {{display.name}}
-        div {{display.text}}
+      div(ng-if='gender && display') Vous êtes un
+       span(ng-if='gender == "woman"') e
+       span  {{display[gender].name}}
+        div {{display[gender].text}}
       //div(ng-repeat='answer in result') {{answer.id}}) {{answer.text}}
     a(ng-href='#/followus').button Suivant

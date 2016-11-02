@@ -25,9 +25,9 @@ export class FlavourController {
       }
     });
 
-    $scope.createFlavour = function(name, text){
-      console.log('creating', name);
-      StoriesFactory.createFlavour({name, text});
+    $scope.createFlavour = function(flavour){
+      // console.log('creating', name);
+      StoriesFactory.createFlavour(flavour);
       // $scope.flavours.$add({name, text});
     };
 

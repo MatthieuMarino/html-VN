@@ -28,6 +28,9 @@ export class ResultController {
           });
           console.log('$scope.current', $scope.current);
           $scope.display = StoriesFactory.getFlavour($scope.current.id);
+          UserFactory.getUserGender().then(function(gender){
+            $scope.gender = gender;
+          });
         });
       }
     });

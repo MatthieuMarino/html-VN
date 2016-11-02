@@ -25,7 +25,7 @@ export class UserFactory {
    *
    * @returns {*}
    */
-  getUserId(){
+  getUserId() {
     return this.AuthService.getUser().uid;
   }
 
@@ -34,7 +34,7 @@ export class UserFactory {
    * @param email
    * @returns {*|{name, b}}
    */
-  changeEmail(email){
+  changeEmail(email) {
     var user = this.Firebase.auth().currentUser;
     return user.updateEmail(email)
   }
@@ -43,7 +43,7 @@ export class UserFactory {
    * @description allow to change the current password
    * @param password
    */
-  changePassword(password){
+  changePassword(password) {
     var user = this.Firebase.auth().currentUser;
     return user.updatePassword(password)
 
@@ -60,10 +60,10 @@ export class UserFactory {
     //thanks firebase for having outdated docs even though you wrote them two months ago
     this.Firebase.auth().signInAnonymously().then(function (firebaseUser) {
       console.log('firebaseUser', firebaseUser);
-      this.userRef.child(firebaseUser.uid).set(user).then(function(ref){
+      this.userRef.child(firebaseUser.uid).set(user).then(function (ref) {
         // console.log('ref', ref);
         defer.resolve(firebaseUser.uid);
-      }.bind(this), function(error){
+      }.bind(this), function (error) {
         console.log('error', error);
         defer.reject(error);
       })
@@ -74,26 +74,35 @@ export class UserFactory {
     return defer.promise;
   }
 
-  getResult(uid, storyId){
-    return this.$firebaseArray(this.userRef.child(uid+'/walkthroughs/'+storyId));
+  getResult(uid, storyId) {
+    return this.$firebaseArray(this.userRef.child(uid + '/walkthroughs/' + storyId));
   }
 
-  saveResult(uid, storyID, index, answer){
-    this.userRef.child(uid+'/walkthroughs/'+storyID+'/'+index).set(answer);
+  saveResult(uid, storyID, index, answer) {
+    this.userRef.child(uid + '/walkthroughs/' + storyID + '/' + index).set(answer);
   }
 
-  isAdmin(uid){
+  isAdmin(uid) {
     var defer = this.$q.defer();
-    this.Firebase.database().ref('admins').child(uid).once('value',function(data){
-      if(data.val()){
+    this.Firebase.database().ref('admins').child(uid).once('value', function (data) {
+      if (data.val()) {
         defer.resolve(true);
-      }else{
+      } else {
         defer.reject('not admin');
       }
-    }).catch(function(err){
+    }).catch(function (err) {
       console.log('err', err);
       defer.reject(err);
     });
+    return defer.promise;
+  }
+
+  getUserGender() {
+    let defer = this.$q.defer();
+    this.userRef.child(this.AuthService.getUser().uid + '/gender/name').once('value', function (data) {
+      defer.resolve(data.val() == "user-man"?"man":"woman");
+    });
+
     return defer.promise;
   }
 
