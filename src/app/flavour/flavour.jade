@@ -1,0 +1,16 @@
+a(ng-href='#/stories').button Menu
+
+h3 Créer un texte de résultat
+
+div.small-8
+  input(type='text', ng-model='newFlavour.name', placeholder='Nom')
+  textarea(ng-model='newFlavour.text', placeholder='Texte à afficher')
+  button(ng-click='createFlavour(newFlavour.name, newFlavour.text)').button Créer
+
+ul
+  li(ng-repeat='flavour in flavours')
+    input(ng-model='flavour.name')
+    textarea(ng-model='flavour.text')
+    button(ng-click='saveFlavour(flavour)').button.success Sauvegarder
+    button(ng-click='deleteFlavour(flavour)').button.alert
+      i.fa.fa-trash

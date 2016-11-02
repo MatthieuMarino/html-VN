@@ -59,17 +59,7 @@ export class StoryController {
               });
             }
           });
-          // console.log('user', $scope.user);
-          // StoriesFactory.getStory($scope.storyId).$loaded(function (data) {
-          //   // console.log('data', data);
-          //   $scope.storyData = data;
-          //   // $scope.characters = $scope.storyData.questions[$scope.index].characters;
-          //   $scope.moods = {};
-          //   $scope.init();
-          //   // console.log('$scope.moods', $scope.moods);
-          //   // console.log('storyData', $scope.storyData.questions[$scope.index].characters);
-          // });
-          // console.log('$scope.storyData', $scope.storyData);
+
         });
 
       }
@@ -86,7 +76,7 @@ export class StoryController {
           $scope.user.$id,
           $scope.storyId,
           metaIndex ? metaIndex + '-' + $scope.index : $scope.index,
-          {id: answer.id, text: answer.text}
+          {id: answer.id, text: answer.text, flavour: answer.flavour?answer.flavour:""}
         );
         angular.forEach(answer.characters, function (chara, key) {
           $scope.moods[key] = chara;

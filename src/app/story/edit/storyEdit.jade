@@ -91,6 +91,8 @@ form.small-12.column
               input(ng-model='answer.result', placeholder='Texte après choix')
               span   Bad end?
                 input(ng-model='answer.end', type='checkbox')
+              select(ng-model='answer.flavour')
+                option(ng-repeat='flavour in flavours', value='{{flavour.$id}}') {{flavour.name}}
               button(ng-click='deleteAnswer(question, answer)').button.alert
                 i.fa.fa-trash
             div(ng-repeat='(chkey,character) in question.characters')

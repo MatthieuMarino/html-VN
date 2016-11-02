@@ -100,10 +100,13 @@ export function routerConfig ($routeProvider) {
       controller: 'Signup'
     })
     .when('/followus', {
+      controller: 'Followus',
       templateUrl: 'app/followus/followus.html'
     })
-    .when('/score', {
-      templateUrl: 'app/score/scoreboard.html'
+    .when('/flavour', {
+      templateUrl: 'app/flavour/flavour.html',
+      controller: 'Flavour',
+      resolve:redirectToLogin
     })
     .otherwise({
       redirectTo: '/login'

@@ -24,6 +24,7 @@ import { BackgroundsController } from './backgrounds/backgrounds.controller';
 import { FollowusController } from './followus/followus.controller';
 import { MetaStoriesFactory } from './components/metaStories/metaStoriesFactory';
 import { MetaStoriesController } from './metaStories/metaStories.controller';
+import { FlavourController } from './flavour/flavourController';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
@@ -48,6 +49,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .controller('Characters', CharactersController)
   .controller('Backgrounds', BackgroundsController)
   .controller('Followus', FollowusController)
+  .controller('Flavour', FlavourController)
   .directive('navbar', NavbarDirective)
   .directive('character', CharacterDirective)
   .directive('interface', InterfaceDirective)

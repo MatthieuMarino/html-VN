@@ -1,5 +1,5 @@
 export class StoryEditController {
-  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory, FileUploader, ResourcesFactory) {
+  constructor($scope, $routeParams, $location, UserFactory, StoriesFactory, FileUploader) {
     'ngInject';
 
     $scope.storyId = $routeParams.storyId;
@@ -29,7 +29,8 @@ export class StoryEditController {
                 $scope.story = data;
               });
               $scope.backgrounds = StoriesFactory.getBackgrounds();
-              $scope.characters = ResourcesFactory.getCharacters();
+              $scope.characters = StoriesFactory.getCharacters();
+              $scope.flavours = StoriesFactory.getFlavours();
               console.log('$scope.backgrounds', $scope.backgrounds);
             } else {
               $location.path('/')

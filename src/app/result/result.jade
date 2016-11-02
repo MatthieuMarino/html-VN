@@ -7,5 +7,7 @@ section.score
     img(src='./assets/images/f.svg', width=120).perso-female
     img(src='./assets/images/h.svg', width=120).perso-male
     div.small-11.column.array
-      div(ng-repeat='answer in result') {{answer.id}}) {{answer.text}}
+      div Vous êtes un {{display.name}}
+        div {{display.text}}
+      //div(ng-repeat='answer in result') {{answer.id}}) {{answer.text}}
     a(ng-href='#/followus').button Suivant

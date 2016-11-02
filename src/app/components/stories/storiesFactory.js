@@ -42,4 +42,16 @@ export class StoriesFactory {
   getCharacter(id){
     return this.$firebaseObject(this.Firebase.database().ref('characters/'+id));
   }
+
+  getFlavour(id){
+    return this.$firebaseObject(this.Firebase.database().ref('flavours/'+id));
+  }
+
+  getFlavours(){
+    return this.$firebaseArray(this.Firebase.database().ref('flavours/'));
+  }
+
+  createFlavour(flavour){
+    return this.Firebase.database().ref('flavours').push(flavour);
+  }
 }
