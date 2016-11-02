@@ -103,6 +103,7 @@ export class StoryController {
         }
         else if ($scope.index < $scope.storyData.questions.length - 1) {
           $scope.index++;
+          console.log('$scope.storyData.questions[$scope.index].background', $scope.storyData.questions[$scope.index].background);
           $scope.init();
           // console.log('$scope.index', $scope.index);
         } else {
@@ -123,9 +124,10 @@ export class StoryController {
             StoriesFactory.getStory(metaStory.stories[metaIndex].id).$loaded(function (data) {
               // console.log('data', data);
               metaDone++;
+              $scope.index = 0;
               $scope.storyData = data;
               $scope.moods = {};
-              $scope.index = 0;
+              // $scope.index = 0;
               $scope.init();
             })
           } else {

@@ -1,4 +1,4 @@
-div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url({{ storyData.questions[index].background }})'}").cont-stories
+div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url('+ storyData.questions[index].background +')'}").cont-stories
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")
