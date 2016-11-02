@@ -117,8 +117,8 @@ export class StoryController {
           // console.log('$scope.index', $scope.index);
         } else {
           // console.log('fini ', $scope.user.walkthroughs[$scope.storyId]);
-          console.log('metaIndex', metaIndex);
-          console.log('metaDone', metaDone, '/', metaStory.stories.length);
+          // console.log('metaIndex', metaIndex);
+          // console.log('metaDone', metaDone, '/', metaStory.stories.length);
           // console.log('metaStory.stories[metaIndex+1].id', metaStory.stories[metaIndex+1].id);
           if (useMeta && metaDone < metaStory.stories.length) {
             metaIndex++;
