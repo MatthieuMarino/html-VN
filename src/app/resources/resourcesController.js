@@ -25,15 +25,16 @@ export class ResourcesController {
       }
     });
 
-    $scope.uploadBackground = function(file){
-      FileUploader.uploadFile(file,"backgrounds").then(function(url){
-        $scope.backgroundURL = url;
-      })
-    };
-
-    $scope.saveBackground = function(){
-      FileUploader.saveBackground($scope.background, $scope.backgroundURL)
-    };
+    // $scope.uploadBackground = function(file){
+    //   FileUploader.uploadFile(file,"backgrounds").then(function(url){
+    //     $scope.backgroundURL = url;
+    //   })
+    // };
+    //
+    // $scope.saveBackground = function(){
+    //   // FileUploader.saveBackground($scope.background, $scope.backgroundURL)
+    //
+    // };
 
     $scope.uploadCharacter = function(mood, file){
       FileUploader.uploadFile(file,"characters").then(function(url){

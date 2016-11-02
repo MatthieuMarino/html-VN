@@ -23,4 +23,6 @@ export class ResourcesFactory {
     return this.$firebaseArray(this.charactersRef.child(name));
   }
 
+
+
 }

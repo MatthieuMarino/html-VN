@@ -3,6 +3,7 @@ export class BackgroundsController {
     'ngInject';
 
     $scope.character = {moods: {}};
+    // $scope.image = './assets/images/zootrope_background.svg';
 
     $scope.$watch(function () {
       return UserFactory.isConnected()

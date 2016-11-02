@@ -1,4 +1,5 @@
-div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url('+ storyData.questions[index].background +')'}").cont-stories
+//div.small-12.column(ng-if='storyData', ng-style="{'background-image': 'url(\'./assets/images/zootrope_background.svg\') {{storyData.questions[$scope.index].background}}px 0'}").cont-stories
+div.small-12.column(ng-if='storyData', style="background-position: {{storyData.questions[index].background}}px 0px").cont-stories
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")

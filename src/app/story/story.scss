@@ -1,8 +1,10 @@
 .cont-stories {
   width: 1024px;
   height: 800px;
+  background-image: url('../../assets/images/zootrope_background.svg');
   background-repeat: no-repeat;
   background-size: cover;
+  overflow: hidden;
   margin: auto;
   position: relative;
   padding: 50px;
@@ -56,5 +58,8 @@
     z-index: 4;
   }
 }
+
+
+
 
 
