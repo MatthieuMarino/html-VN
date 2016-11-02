@@ -105,7 +105,7 @@ export class StoryController {
       }
 
       $timeout(function () {
-        if(answer.end){
+        if(answer && answer.end){
           $location.search({
             storyId: $scope.storyId
           });
