@@ -6,7 +6,8 @@ div(ng-repeat='(key,background) in backgrounds').row
   div.backgroundContainer
     div(style="background-position: {{background}}px 0px").backgroundSprite
   //img(ng-src="{{background}}").small-6
-  div.small-2 {{key}} {{background}}
+  div.small-2 {{key}}
+    input(type='number', ng-model='backgrounds[key]')
   span.small-1
     button(ng-click='delete(background)').button.alert
       i.fa.fa-trash
