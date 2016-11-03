@@ -9,49 +9,62 @@ export class StoriesFactory {
     'ngInject';
 
     this.Firebase = Firebase;
+    // console.log('this.Firebase', this.Firebase);
     this.storiesRef = Firebase.database().ref('stories');
     this.$firebaseArray = $firebaseArray;
     this.$firebaseObject = $firebaseObject;
   }
 
-  getStory(id){
+  getStory(id) {
     return this.$firebaseObject(this.storiesRef.child(id));
   }
 
-  getStories(){
+  getStories() {
     return this.$firebaseArray(this.storiesRef);
   }
 
-  deleteStory(storyId){
+  deleteStory(storyId) {
     this.storiesRef.child(storyId).remove();
   }
 
-  createStory(story){
+  createStory(story) {
     var newStory = angular.copy(story);
     return this.Firebase.database().ref('stories').push(newStory);
   }
 
-  getBackgrounds(){
+  getBackgrounds() {
     return this.$firebaseObject(this.Firebase.database().ref('backgrounds'));
   }
 
-  getCharacters(){
+  getCharacters() {
     return this.$firebaseArray(this.Firebase.database().ref('characters'));
   }
 
-  getCharacter(id){
-    return this.$firebaseObject(this.Firebase.database().ref('characters/'+id));
+  getCharacter(id) {
+    return this.$firebaseObject(this.Firebase.database().ref('characters/' + id));
   }
 
-  getFlavour(id){
-    return this.$firebaseObject(this.Firebase.database().ref('flavours/'+id));
+  getFlavour(id) {
+    return this.$firebaseObject(this.Firebase.database().ref('flavours/' + id));
   }
 
-  getFlavours(){
+  getFlavours() {
     return this.$firebaseArray(this.Firebase.database().ref('flavours/'));
   }
 
-  createFlavour(flavour){
+  createFlavour(flavour) {
     return this.Firebase.database().ref('flavours').push(flavour);
+  }
+
+  createBackground(name) {
+    // console.log('this.Firebase', this.Firebase);
+    if(name){
+      return firebase.database().ref('backgrounds/'+name).set(0);
+    }
+  }
+
+  deleteBackground(name) {
+    // console.log('name', name);
+    return firebase.database().ref('backgrounds/'+name).remove();
   }
 }

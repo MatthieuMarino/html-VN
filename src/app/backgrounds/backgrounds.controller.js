@@ -37,9 +37,10 @@ export class BackgroundsController {
       $scope.backgrounds.$save( background)
     };
 
-    $scope.delete = function(background){
-      $scope.backgrounds.$remove(background);
-    };
+    $scope.delete = StoriesFactory.deleteBackground;
+
+    $scope.addBackground = StoriesFactory.createBackground;
+
 
   }
 
