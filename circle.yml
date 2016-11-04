@@ -2,9 +2,6 @@ general:
   branches:
     only:
       - master
-dependencies:
-  override:
-    -yarn
 test:
   pre:
     - gulp clean
