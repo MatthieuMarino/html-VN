@@ -2,7 +2,7 @@ general:
   branches:
     only:
       - master
-dependency:
+dependencies:
   override:
     -yarn
 test:
