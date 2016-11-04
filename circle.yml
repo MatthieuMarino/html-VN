@@ -4,6 +4,7 @@ general:
       - master
 test:
   pre:
+    - bower install
     - gulp clean
     - rm -rf .eslintrc
   override:

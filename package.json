@@ -5,8 +5,7 @@
     "angularfire": "^2.1.0"
   },
   "scripts": {
-    "test": "gulp test",
-    "postinstall": "bower install"
+    "test": "gulp test"
   },
   "devDependencies": {
     "babel-core": "~6.7.4",
