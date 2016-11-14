@@ -7,6 +7,7 @@ export class StoryController {
     let metaDone = 0;
     let useMeta = false;
     let metaStory = null;
+    $scope.characters = [];
     // console.log('$scope.storyId', $scope.storyId);
 
     $scope.urlBack = './assets/images/background.svg';
@@ -103,7 +104,7 @@ export class StoryController {
         }
         else if ($scope.index < $scope.storyData.questions.length - 1) {
           $scope.index++;
-          console.log('$scope.storyData.questions[$scope.index].background', $scope.storyData.questions[$scope.index].background);
+          // console.log('$scope.storyData.questions[$scope.index].background', $scope.storyData.questions[$scope.index].background);
           $scope.init();
           // console.log('$scope.index', $scope.index);
         } else {
@@ -143,11 +144,40 @@ export class StoryController {
 
     };
 
+    var searchChar = function(char){
+      let result = -1;
+      angular.forEach($scope.characters, function(chara,key){
+        if(chara.name == char){
+          result = key;
+        }
+      });
+      return result;
+    };
+
     $scope.init = function () {
       if ($scope.storyData.questions[$scope.index].characters) {
         $scope.storyData.questions[$scope.index].characters.map(function (chara) {
           $scope.moods[chara.name] = chara.mood;
+          let index = searchChar(chara.name);
+          if(index > -1){
+            console.log('update char');
+            $scope.characters[index] = chara;
+          }else{
+            console.log('creating char');
+            $scope.characters.push(chara);
+          }
         });
+        if($scope.storyData.questions[$scope.index].characters.length != $scope.characters.length){
+          $scope.characters.map(function(chara){
+            if($scope.storyData.questions[$scope.index].characters.indexOf(chara) != -1){
+              $scope.characters.splice($scope.characters.indexOf(chara),1);
+            }
+          })
+        }
+        console.log('$scope.characters', $scope.characters);
+      }
+      else{
+        $scope.characters.empty();
       }
       if ($scope.storyData.questions[$scope.index].mainChar) {
         $scope.userMood = $scope.storyData.questions[$scope.index].mainChar.mood;

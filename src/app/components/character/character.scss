@@ -3,40 +3,84 @@
 }
 
 
-//.slide {
-//  transition:8s linear all;
-//  transform:translateX(400px);
+//.slide.ng-enter {
+//  //transition:8s linear all;
+//  ////transform:translateX(400px);
+//}
+//
+//.slide.ng-leave {
+//  //transition:8s linear all;
+//  //transform:translateX(0px);
 //}
 
 .slide1 {
-  transition:1s linear all;
-  transform:translateX(400px);
-}
+   //transition:1s linear all;
+   //transform:translateX(400px);
+ }
 .slide2 {
-  transition:2s linear all;
-  transform:translateX(487.5px);
+  //transition:2s linear all;
+  //transform:translateX(487.5px);
 }
 .slide3 {
-  transition:2.2s linear all;
-  transform:translateX(575px);
+  //transition:2.2s linear all;
+  //transform:translateX(575px);
 }
 .slide4 {
-  transition:2.3s linear all;
-  transform:translateX(662.5px);
+  //transition:2.3s linear all;
+  //transform:translateX(662.5px);
 }
 .slide5 {
-  transition:3s linear all;
-  transform:translateX(750px);
+  //transition:3s linear all;
+  //transform:translateX(750px);
 }
 .slide6 {
-  transition:3.4s linear all;
-  transform:translateX(837.5px);
+  //transition:3.4s linear all;
+  //transform:translateX(837.5px);
 }
 .slide7 {
-  transition:4s linear all;
-  transform:translateX(925px);
+  //transition:4s linear all;
+  //transform:translateX(925px);
 }
 .slide8 {
-  transition:4.5s linear all;
-  transform:translateX(1012.5px);
+  //transition:4.5s linear all;
+  //transform:translateX(1012.5px);
 }
+
+//.slide1.ng-enter.ng-enter-active {
+//  //transition:1s linear all;
+//  transform:translateX(400px);
+//}
+//.slide2.ng-enter.ng-enter-active {
+//  //transition:2s linear all;
+//  transform:translateX(487.5px);
+//}
+//.slide3.ng-enter.ng-enter-active {
+//  //transition:2.2s linear all;
+//  transform:translateX(575px);
+//}
+//.slide4.ng-enter.ng-enter-active {
+//  //transition:2.3s linear all;
+//  transform:translateX(662.5px);
+//}
+//.slide5.ng-enter.ng-enter-active {
+//  //transition:3s linear all;
+//  transform:translateX(750px);
+//}
+//.slide6.ng-enter.ng-enter-active {
+//  //transition:3.4s linear all;
+//  transform:translateX(837.5px);
+//}
+//.slide7.ng-enter.ng-enter-active {
+//  //transition:4s linear all;
+//  transform:translateX(925px);
+//}
+//.slide8.ng-enter.ng-enter-active {
+//  //transition:4.5s linear all;
+//  transform:translateX(1012.5px);
+//}
+//
+//.slide1.ng-enter , .slide2.ng-enter, .slide3.ng-enter, .slide4.ng-enter, .slide5.ng-enter,
+//.slide6.ng-enter, .slide7.ng-enter, .slide8.ng-enter {
+//  transition:4.5s linear all;
+//  transform:translateX(-400px);
+//}
