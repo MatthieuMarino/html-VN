@@ -25,6 +25,7 @@ import { FollowusController } from './followus/followus.controller';
 import { MetaStoriesFactory } from './components/metaStories/metaStoriesFactory';
 import { MetaStoriesController } from './metaStories/metaStories.controller';
 import { FlavourController } from './flavour/flavourController';
+import { CharacterAnimation } from './components/character/characterAnimation';
 
 angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'firebase', 'ngFileUpload'])
   .constant('Firebase',firebase)
@@ -36,6 +37,7 @@ angular.module('dyouVn', ['ngAnimate', 'ngSanitize', 'ngAria', 'ngRoute', 'fireb
   .service('FileUploader', FileUploader)
   .service('ResourcesFactory', ResourcesFactory)
   .service('MetaStoriesFactory', MetaStoriesFactory)
+  .animation('.slide', CharacterAnimation)
   .controller('MainController', MainController)
   .controller('Login',LoginController)
   .controller('Signup', SignupPageController)

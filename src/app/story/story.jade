@@ -3,7 +3,9 @@ div.small-12.column(ng-if='storyData', style="background-position: {{storyData.q
   //div(ng-style="{'background-image': 'url({{storyData.questions[index].image}})'}")
   div.stories
     div(ng-repeat=" perso in storyData.questions[index].characters ")
-      character(data='perso', mood='{{moods[perso.name]}}', style='left:{{perso.columnX}}px; top:{{perso.columnY}}px').character
+      character(data='perso', mood='{{moods[perso.name]}}', style='left: -400px; top:{{perso.columnY}}px',
+      ng-class='{slide1:perso.columnX==0, slide2:perso.columnX==87.5, slide3:perso.columnX==175, slide4:perso.columnX==262.5,' +
+      'slide5:perso.columnX==350, slide6:perso.columnX==437.5, slide7:perso.columnX==525, slide8:perso.columnX==612.5}').character
     div.row.animation.medium-collapse.large-collapse.cont-menu
       div.small-12.column.text-right
         //span(ng-click='stopSound()')
